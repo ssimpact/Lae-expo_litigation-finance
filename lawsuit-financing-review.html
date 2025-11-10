@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지급존 - 소송금융 심사</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 24px;
+            padding: 32px 24px 48px;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 0 8px;
+            position: relative;
+        }
+
+        .step-line {
+            position: absolute;
+            top: 16px;
+            left: 8px;
+            right: 8px;
+            height: 3px;
+            background: #e2e8f0;
+            z-index: 0;
+        }
+
+        .step-line-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.5s ease-out;
+            width: 0%;
+        }
+
+        .step-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+        }
+
+        .step-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: #a0aec0;
+            transition: all 0.3s ease;
+            margin-bottom: 8px;
+        }
+
+        .step-item.active .step-circle {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .step-item.completed .step-circle {
+            background: #48bb78;
+            color: white;
+        }
+
+        .step-label {
+            font-size: 11px;
+            color: #a0aec0;
+            text-align: center;
+            line-height: 1.3;
+            max-width: 60px;
+            transition: color 0.3s ease;
+        }
+
+        .step-item.active .step-label {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .step-item.completed .step-label {
+            color: #48bb78;
+            font-weight: 600;
+        }
+
+        .icon-wrapper {
+            margin: 0 auto 32px;
+            width: 120px;
+            height: 120px;
+            position: relative;
+        }
+
+        .icon {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+        }
+
+        .pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border: 3px solid #667eea;
+            border-radius: 50%;
+            animation: pulse 2s ease-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .spinner {
+            width: 100%;
+            height: 100%;
+            border: 6px solid rgba(255, 255, 255, 0.3);
+            border-top: 6px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .description {
+            font-size: 15px;
+            color: #718096;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .sub-description {
+            font-size: 13px;
+            color: #a0aec0;
+            line-height: 1.5;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            margin-top: 32px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 3px;
+            transition: width 1s ease-out;
+        }
+
+        .result-box {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 16px;
+            margin-top: 24px;
+        }
+
+        .result-status {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .result-amount {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .result-note {
+            font-size: 13px;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .checkmark-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .checkmark-icon {
+            font-size: 48px;
+            color: #48bb78;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .replay-button {
+            margin-top: 24px;
+            padding: 10px 24px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .replay-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="step-indicator">
+            <div class="step-line">
+                <div class="step-line-progress" id="stepProgress"></div>
+            </div>
+            <div class="step-item" id="step-0">
+                <div class="step-circle">1</div>
+                <div class="step-label">심사<br>시작</div>
+            </div>
+            <div class="step-item" id="step-1">
+                <div class="step-circle">2</div>
+                <div class="step-label">승소<br>가능성</div>
+            </div>
+            <div class="step-item" id="step-2">
+                <div class="step-circle">3</div>
+                <div class="step-label">집행<br>가능성</div>
+            </div>
+            <div class="step-item" id="step-3">
+                <div class="step-circle">4</div>
+                <div class="step-label">결과<br>도출</div>
+            </div>
+            <div class="step-item" id="step-4">
+                <div class="step-circle">5</div>
+                <div class="step-label">결과<br>안내</div>
+            </div>
+        </div>
+        <div id="content"></div>
+    </div>
+
+    <script>
+        const stages = [
+            {
+                duration: 2500,
+                icon: '🚀',
+                title: '소송금융 심사가 시작되었습니다',
+                description: '',
+                subDescription: '',
+                showPulse: true,
+                progress: 10
+            },
+            {
+                duration: 4500,
+                icon: '⚖️',
+                title: '승소가능성을 심사중입니다',
+                description: '',
+                subDescription: '*사실관계 및 주요 쟁점, 관련 법리를 기반으로 승소 가능성을 심사중이에요.',
+                showSpinner: false,
+                progress: 35
+            },
+            {
+                duration: 4500,
+                icon: '🔍',
+                title: '집행가능성을 심사중입니다',
+                description: '',
+                subDescription: '*사실관계 및 상대방에 대한 정보 등을 기반으로 집행 가능성을 심사중이에요.',
+                showSpinner: false,
+                progress: 65
+            },
+            {
+                duration: 3500,
+                icon: '📊',
+                title: '심사 결과를 도출하고 있습니다',
+                description: '',
+                subDescription: '*승소가능성과 집행가능성, 승소예상금액, 소송예상기간 등 심사결과를 도출하고 있어요.',
+                showSpinner: false,
+                progress: 90
+            },
+            {
+                duration: null,
+                showResult: true,
+                progress: 100
+            }
+        ];
+
+        let currentStage = 0;
+
+        function updateStepIndicator(stage) {
+            // 이전 단계들 완료 표시
+            for (let i = 0; i < stage; i++) {
+                const stepItem = document.getElementById(`step-${i}`);
+                stepItem.classList.remove('active');
+                stepItem.classList.add('completed');
+                const circle = stepItem.querySelector('.step-circle');
+                circle.textContent = '✓';
+            }
+
+            // 현재 단계 활성화
+            if (stage < 5) {
+                const currentStepItem = document.getElementById(`step-${stage}`);
+                currentStepItem.classList.add('active');
+                currentStepItem.classList.remove('completed');
+            }
+
+            // 마지막 단계 완료 표시
+            if (stage === 4) {
+                const lastStep = document.getElementById('step-4');
+                lastStep.classList.remove('active');
+                lastStep.classList.add('completed');
+                const circle = lastStep.querySelector('.step-circle');
+                circle.textContent = '✓';
+            }
+
+            // 진행 바 업데이트
+            const progressBar = document.getElementById('stepProgress');
+            const progressPercent = (stage / 4) * 100;
+            progressBar.style.width = progressPercent + '%';
+        }
+
+        function renderStage(stage) {
+            const content = document.getElementById('content');
+            
+            if (stage.showResult) {
+                content.innerHTML = `
+                    <div class="fade-in">
+                        <div class="title">심사 결과를 안내드려요</div>
+                        <div class="result-box">
+                            <div class="checkmark">
+                                <div class="checkmark-circle">
+                                    <div class="checkmark-icon">✓</div>
+                                </div>
+                            </div>
+                            <div class="result-status">심사 통과</div>
+                            <div class="result-amount">지급 예상 금액: 최대 1,000만 원</div>
+                            <div class="result-note">*소송 개시 이후 절차마다 추가 지급을 위한 심사를 요청할 수 있어요.</div>
+                            <button class="replay-button" onclick="location.reload()">다시보기</button>
+                        </div>
+                    </div>
+                `;
+            } else {
+                const iconContent = stage.showSpinner 
+                    ? '<div class="spinner"></div>' 
+                    : stage.icon;
+                
+                const pulseRing = stage.showPulse 
+                    ? '<div class="pulse-ring"></div><div class="pulse-ring" style="animation-delay: 0.5s;"></div>' 
+                    : '';
+
+                content.innerHTML = `
+                    <div class="fade-in">
+                        <div class="icon-wrapper">
+                            ${pulseRing}
+                            <div class="icon">
+                                ${iconContent}
+                            </div>
+                        </div>
+                        <div class="title">${stage.title}</div>
+                        ${stage.description ? `<div class="description">${stage.description}</div>` : ''}
+                        ${stage.subDescription ? `<div class="sub-description">${stage.subDescription}</div>` : ''}
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${stage.progress}%"></div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function nextStage() {
+            if (currentStage < stages.length) {
+                updateStepIndicator(currentStage);
+                renderStage(stages[currentStage]);
+                
+                if (stages[currentStage].duration) {
+                    setTimeout(() => {
+                        currentStage++;
+                        nextStage();
+                    }, stages[currentStage].duration);
+                }
+            }
+        }
+
+        // 페이지 로드 시 자동 시작
+        window.addEventListener('load', () => {
+            setTimeout(nextStage, 300);
+        });
+    </script>
+</body>
+</html>
