@@ -132,6 +132,36 @@
             position: relative;
         }
 
+        /* 회전하는 테두리 링 추가 */
+        .spinning-ring {
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                transparent 270deg,
+                rgba(255, 255, 255, 0.8) 300deg,
+                rgba(102, 126, 234, 0.8) 330deg,
+                transparent 360deg
+            );
+            animation: spinRing 1.5s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes spinRing {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* fade-in은 한 번만, 회전은 계속 */
+        .content-wrapper {
+            animation: fadeIn 0.5s ease-out;
+        }
+
         .pulse-ring {
             position: absolute;
             top: 50%;
@@ -415,7 +445,7 @@
             
             if (stage.showResult) {
                 content.innerHTML = `
-                    <div class="fade-in">
+                    <div class="content-wrapper">
                         <div class="title">심사 결과를 안내드려요</div>
                         <div class="result-box">
                             <div class="checkmark">
@@ -439,9 +469,15 @@
                     ? '<div class="pulse-ring"></div><div class="pulse-ring" style="animation-delay: 0.5s;"></div>' 
                     : '';
 
+                // 심사 중 단계(1, 2, 3)에 회전 링 추가
+                const spinningRing = (currentStage >= 1 && currentStage <= 3) 
+                    ? '<div class="spinning-ring"></div>' 
+                    : '';
+
                 content.innerHTML = `
-                    <div class="fade-in">
+                    <div class="content-wrapper">
                         <div class="icon-wrapper">
+                            ${spinningRing}
                             ${pulseRing}
                             <div class="icon">
                                 ${iconContent}
