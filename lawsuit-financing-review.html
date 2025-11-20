@@ -194,6 +194,16 @@
             height: 220px;
             position: relative;
             perspective: 1200px;
+            animation: iconWrapperFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes iconWrapperFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
         .icon {
@@ -212,7 +222,6 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.9),
                 inset 0 -1px 0 rgba(0, 0, 0, 0.05);
             transform-style: preserve-3d;
-            animation: float 6s ease-in-out infinite;
             border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
@@ -2068,7 +2077,7 @@
     <script>
         const stages = [
             {
-                duration: 2500,
+                duration: 1500,
                 title: '소송금융 심사가 시작되었습니다',
                 description: '',
                 subDescription: '*심사역 변호사가 심사를 시작하며, 상담결과지 및 사실관계 관련 서류를 확인하고 있습니다.',
@@ -2076,21 +2085,21 @@
                 progress: 10
             },
             {
-                duration: 4500,
+                duration: 2000,
                 title: '승소가능성을 심사중입니다',
                 description: '',
                 subDescription: '*사실관계 및 주요 쟁점, 관련 법리를 기반으로 승소 가능성을 심사중이에요.',
                 progress: 35
             },
             {
-                duration: 4500,
+                duration: 2000,
                 title: '집행가능성을 심사중입니다',
                 description: '',
                 subDescription: '*사실관계 및 상대방에 대한 정보 등을 기반으로 집행 가능성을 심사중이에요.',
                 progress: 65
             },
             {
-                duration: 3500,
+                duration: 1500,
                 title: '심사 결과를 도출하고 있습니다',
                 description: '',
                 subDescription: '*승소가능성과 집행가능성, 승소예상금액, 소송예상기간 등 심사결과를 도출하고 있어요.',
@@ -2153,7 +2162,6 @@
                             <div class="result-status">심사 통과</div>
                             <div class="result-amount">착수금을 비롯한 인지송달료, 감정료 등의 법률비용을 지급받을 수 있습니다.</div>
                             <div class="result-note">*소송 개시 이후 절차마다 추가 지급을 위한 심사를 요청할 수 있어요.</div>
-                            <button class="replay-button" onclick="location.reload()">다시보기</button>
                         </div>
                     </div>
                 `;
