@@ -1772,9 +1772,9 @@
         }
 
         .result-amount {
-            font-size: 24px;
+            font-size: 16px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             background: rgba(255, 255, 255, 0.25);
             padding: 16px 24px;
             border-radius: 16px;
@@ -1784,18 +1784,23 @@
                 inset 0 1px 2px rgba(255, 255, 255, 0.3);
             position: relative;
             z-index: 1;
+            line-height: 1.5;
         }
 
         .result-note {
-            font-size: 14px;
-            opacity: 0.95;
-            line-height: 1.7;
-            background: rgba(255, 255, 255, 0.18);
-            padding: 14px 18px;
-            border-radius: 12px;
-            backdrop-filter: blur(5px);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 0.25);
+            padding: 16px 24px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0, 0.15),
+                inset 0 1px 2px rgba(255, 255, 255, 0.3);
             position: relative;
             z-index: 1;
+            line-height: 1.5;
         }
 
         .checkmark {
@@ -2161,7 +2166,8 @@
                             </div>
                             <div class="result-status">심사 통과</div>
                             <div class="result-amount">착수금을 비롯한 인지송달료, 감정료 등의 법률비용을 지급받을 수 있습니다.</div>
-                            <div class="result-note">*소송 개시 이후 절차마다 추가 지급을 위한 심사를 요청할 수 있어요.</div>
+                            <div class="result-note">담당 심사역 변호사, 매니저가 소송금융 계약 관련해 연락드릴 예정입니다.</div>
+                            <div class="result-note" style="margin-bottom: 0;">소송 개시 이후에도 추가 지급 신청이 가능하며, 경우에 따라 심사가 필요할 수 있습니다.</div>
                         </div>
                     </div>
                 `;
