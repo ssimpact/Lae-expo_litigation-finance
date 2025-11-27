@@ -307,17 +307,24 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
             letter-spacing: -0.3px;
+            text-align: center;
+            width: 100%;
         }
 
         .instruction-icon {
-            font-size: 28px;
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            margin-right: 10px;
+            vertical-align: middle;
             animation: bounce 1.5s ease-in-out infinite;
-            filter: drop-shadow(0 4px 10px rgba(0, 193, 162, 0.3));
+        }
+
+        .instruction-icon svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.4));
         }
 
         @keyframes bounce {
@@ -383,7 +390,7 @@
             color: white;
             padding: 24px 36px;
             border-radius: 20px;
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 900;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -394,7 +401,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 14px;
+            gap: 16px;
             letter-spacing: -0.4px;
             position: relative;
             overflow: hidden;
@@ -443,7 +450,7 @@
         }
 
         .button-icon {
-            font-size: 32px;
+            font-size: 40px;
             position: relative;
             z-index: 1;
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
@@ -571,6 +578,14 @@
                 width: 40px;
                 height: 40px;
             }
+
+            .start-button {
+                font-size: 20px;
+            }
+
+            .button-icon {
+                font-size: 32px;
+            }
         }
     </style>
     <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
@@ -603,8 +618,11 @@
             </div>
 
             <div class="instruction-text" id="instructionText">
-                <span class="instruction-icon">👇</span>
-                <span>아래 버튼을 눌러 시작하세요</span>
+                <span class="instruction-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 5L12 19M12 19L19 12M12 19L5 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>아래 버튼을 눌러 시작하세요
             </div>
 
             <button id="start-button" class="start-button">
@@ -652,7 +670,7 @@
                 placeholder.style.display = 'none';
                 statusDiv.textContent = '✅ 카메라가 활성화되었습니다';
                 statusDiv.className = 'status scanning';
-                instructionText.innerHTML = '<span class="instruction-icon">📸</span><span>QR 코드를 프레임 안에 맞춰주세요</span>';
+                instructionText.innerHTML = '<span class="instruction-icon">📸</span>QR 코드를 프레임 안에 맞춰주세요';
                 startButton.style.display = 'none';
             }).catch((err) => {
                 console.error('카메라 시작 실패:', err);
@@ -668,7 +686,7 @@
             
             statusDiv.textContent = '✅ QR 코드 인식 완료! 심사 페이지로 이동합니다...';
             statusDiv.className = 'status success';
-            instructionText.innerHTML = '<span class="instruction-icon">✓</span><span>인식 완료!</span>';
+            instructionText.innerHTML = '<span class="instruction-icon">✓</span>인식 완료!';
 
             // QR 코드 스캔 중지
             html5QrCode.stop().then(() => {
@@ -680,7 +698,7 @@
                     } else {
                         // URL이 아닌 경우, 로컬 심사 페이지로 이동
                         // 실제 배포 시에는 여기에 실제 URL을 입력하세요
-                        window.location.href = 'lawandgood_review_redesign.html';
+                        window.location.href = 'lawandgood_review_final.html';
                     }
                 }, 800);
             });
