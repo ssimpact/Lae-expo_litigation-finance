@@ -19,6 +19,8 @@
             --color-silver-dark: #8B92A0;
             --color-white: #FFFFFF;
             --color-success: #00C1A2;
+            /* 90인치 모니터용 기본 폰트 크기 증가 */
+            font-size: 32px;
         }
 
         body {
@@ -72,7 +74,7 @@
             backdrop-filter: blur(20px);
             min-height: 100vh;
             width: 100%;
-            padding: 60px 40px;
+            padding: 100px 80px;
             text-align: center;
             position: relative;
             z-index: 10;
@@ -87,34 +89,34 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 60px;
-            padding: 0 20px;
+            margin-bottom: 100px;
+            padding: 0 40px;
             position: relative;
-            max-width: 600px;
+            max-width: 1000px;
             width: 100%;
         }
 
         .step-line {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            height: 4px;
+            top: 32px;
+            left: 40px;
+            right: 40px;
+            height: 6px;
             background: linear-gradient(135deg, var(--color-silver-light) 0%, #ffffff 100%);
             z-index: 0;
-            border-radius: 4px;
+            border-radius: 6px;
             box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
         }
 
         .step-line-progress {
             height: 100%;
             background: linear-gradient(90deg, var(--color-accent) 0%, #00E6BB 100%);
-            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             width: 0%;
-            border-radius: 4px;
+            border-radius: 6px;
             box-shadow: 
-                0 0 15px rgba(0, 193, 162, 0.6),
-                inset 0 1px 2px rgba(255, 255, 255, 0.5);
+                0 0 20px rgba(0, 193, 162, 0.6),
+                inset 0 2px 3px rgba(255, 255, 255, 0.5);
         }
 
         .step-item {
@@ -127,23 +129,23 @@
         }
 
         .step-circle {
-            width: 40px;
-            height: 40px;
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--color-silver-light) 0%, #ffffff 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 15px;
+            font-size: 24px;
             font-weight: 800;
             color: var(--color-silver-dark);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            margin-bottom: 12px;
-            border: 3px solid white;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 20px;
+            border: 4px solid white;
             box-shadow: 
-                0 4px 12px rgba(0, 0, 0, 0.15),
-                inset 0 1px 3px rgba(255, 255, 255, 0.8),
-                inset 0 -2px 4px rgba(0, 0, 0, 0.08);
+                0 6px 18px rgba(0, 0, 0, 0.15),
+                inset 0 2px 4px rgba(255, 255, 255, 0.8),
+                inset 0 -3px 6px rgba(0, 0, 0, 0.08);
         }
 
         .step-item.active .step-circle {
@@ -151,9 +153,9 @@
             color: white;
             transform: scale(1.2);
             box-shadow: 
-                0 8px 25px rgba(0, 193, 162, 0.6),
-                inset 0 1px 3px rgba(255, 255, 255, 0.5),
-                inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+                0 12px 35px rgba(0, 193, 162, 0.6),
+                inset 0 2px 4px rgba(255, 255, 255, 0.5),
+                inset 0 -3px 6px rgba(0, 0, 0, 0.15);
             border-color: rgba(255, 255, 255, 0.3);
         }
 
@@ -161,17 +163,17 @@
             background: linear-gradient(135deg, var(--color-accent) 0%, #00b894 100%);
             color: white;
             box-shadow: 
-                0 4px 15px rgba(0, 193, 162, 0.3),
-                inset 0 1px 2px rgba(255, 255, 255, 0.4);
+                0 6px 20px rgba(0, 193, 162, 0.3),
+                inset 0 2px 3px rgba(255, 255, 255, 0.4);
         }
 
         .step-label {
-            font-size: 13px;
+            font-size: 20px;
             color: var(--color-silver-dark);
             text-align: center;
             line-height: 1.4;
-            max-width: 70px;
-            transition: all 0.3s ease;
+            max-width: 120px;
+            transition: all 0.4s ease;
             font-weight: 600;
         }
 
@@ -179,19 +181,19 @@
             color: var(--color-accent);
             font-weight: 800;
             transform: scale(1.05);
-            font-size: 14px;
+            font-size: 22px;
         }
 
         .step-item.completed .step-label {
             color: var(--color-accent);
             font-weight: 700;
-            font-size: 13px;
+            font-size: 20px;
         }
 
         .icon-wrapper {
-            margin: 0 auto 50px;
-            width: 220px;
-            height: 220px;
+            margin: 0 auto 80px;
+            width: 380px;
+            height: 380px;
             position: relative;
             perspective: 1200px;
             animation: iconWrapperFloat 3s ease-in-out infinite;
@@ -202,7 +204,7 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-20px);
+                transform: translateY(-25px);
             }
         }
 
@@ -217,10 +219,10 @@
             position: relative;
             backdrop-filter: blur(20px);
             box-shadow: 
-                0 30px 80px rgba(11, 25, 70, 0.25),
-                0 10px 30px rgba(0, 193, 162, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9),
-                inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+                0 40px 100px rgba(11, 25, 70, 0.25),
+                0 15px 40px rgba(0, 193, 162, 0.15),
+                inset 0 2px 0 rgba(255, 255, 255, 0.9),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.05);
             transform-style: preserve-3d;
             border: 1px solid rgba(255, 255, 255, 0.5);
         }
@@ -228,341 +230,288 @@
         /* 3D 아이콘 공통 스타일 */
         .icon-3d {
             position: relative;
-            width: 120px;
-            height: 120px;
+            width: 200px;
+            height: 200px;
             transform-style: preserve-3d;
+            will-change: transform;
         }
 
-        /* 1단계: 다리(Bridge) 아이콘 */
-        .icon-document {
-            width: 150px;
-            height: 120px;
+        /* ========== 개선된 3D 퍼즐 아이콘 (심사 시작) ========== */
+        .icon-puzzle {
+            width: 200px;
+            height: 200px;
             position: relative;
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateX(-8deg) rotateY(12deg);
         }
 
-        /* 왼쪽 다리 기둥 */
-        .icon-bridge-pillar-left {
-            position: absolute;
-            bottom: 0;
-            left: 10px;
-            width: 32px;
-            height: 45px;
-            background: linear-gradient(135deg, var(--color-accent) 0%, #00b894 100%);
-            border-radius: 4px 4px 0 0;
-            box-shadow: 
-                0 8px 20px rgba(0, 193, 162, 0.4),
-                inset 0 2px 4px rgba(255, 255, 255, 0.4),
-                inset 0 -3px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        .icon-bridge-pillar-left::before {
-            content: '';
+        /* 왼쪽 상단 퍼즐 조각 - 더 명확한 퍼즐 모양 */
+        .icon-puzzle-piece-1 {
             position: absolute;
             top: 0;
             left: 0;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
-            border-radius: 4px 0 0 0;
-        }
-
-        /* 왼쪽 다리 기둥 돌 패턴 */
-        .icon-bridge-stone-left-1,
-        .icon-bridge-stone-left-2,
-        .icon-bridge-stone-left-3 {
-            position: absolute;
-            left: 14px;
-            width: 20px;
-            height: 8px;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.08) 100%);
-            border-radius: 4px;
-        }
-
-        .icon-bridge-stone-left-1 { bottom: 32px; }
-        .icon-bridge-stone-left-2 { bottom: 20px; }
-        .icon-bridge-stone-left-3 { bottom: 8px; }
-
-        /* 오른쪽 다리 기둥 */
-        .icon-bridge-pillar-right {
-            position: absolute;
-            bottom: 0;
-            right: 10px;
-            width: 32px;
-            height: 45px;
-            background: linear-gradient(135deg, var(--color-accent) 0%, #00b894 100%);
-            border-radius: 4px 4px 0 0;
+            width: 92px;
+            height: 92px;
+            background: linear-gradient(135deg, #4A90E2 0%, #6BB6FF 50%, #89CFF0 100%);
+            border-radius: 12px;
             box-shadow: 
-                0 8px 20px rgba(0, 193, 162, 0.4),
-                inset 0 2px 4px rgba(255, 255, 255, 0.4),
-                inset 0 -3px 6px rgba(0, 0, 0, 0.2);
+                0 20px 45px rgba(74, 144, 226, 0.5),
+                inset 0 6px 15px rgba(255, 255, 255, 0.6),
+                inset 0 -6px 15px rgba(0, 0, 0, 0.2);
+            transform: translateZ(25px);
+            clip-path: polygon(
+                0% 0%, 50% 0%, 50% 15%, 60% 15%, 60% 35%, 50% 35%, 50% 100%, 0% 100%
+            );
         }
 
-        .icon-bridge-pillar-right::before {
+        .icon-puzzle-piece-1::before {
             content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 40%;
+            bottom: 55%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.2) 100%);
+            border-radius: 12px 0 0 0;
+            filter: blur(4px);
+        }
+
+        /* 오른쪽 돌기 - 더 뚜렷하게 */
+        .icon-puzzle-piece-1::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #5A9EED 0%, #7BBFFF 100%);
+            border-radius: 50%;
+            box-shadow: 
+                0 12px 20px rgba(74, 144, 226, 0.5),
+                inset 0 4px 8px rgba(255, 255, 255, 0.6),
+                inset 0 -3px 6px rgba(0, 0, 0, 0.25);
+        }
+
+        /* 오른쪽 상단 퍼즐 조각 - 더 명확한 퍼즐 모양 */
+        .icon-puzzle-piece-2 {
             position: absolute;
             top: 0;
-            left: 0;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
-            border-radius: 4px 0 0 0;
-        }
-
-        /* 오른쪽 다리 기둥 돌 패턴 */
-        .icon-bridge-stone-right-1,
-        .icon-bridge-stone-right-2,
-        .icon-bridge-stone-right-3 {
-            position: absolute;
-            right: 14px;
-            width: 20px;
-            height: 8px;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.08) 100%);
-            border-radius: 4px;
-        }
-
-        .icon-bridge-stone-right-1 { bottom: 32px; }
-        .icon-bridge-stone-right-2 { bottom: 20px; }
-        .icon-bridge-stone-right-3 { bottom: 8px; }
-
-        /* 다리 아치 (메인) */
-        .icon-bridge-arch {
-            position: absolute;
-            bottom: 45px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 60px;
-            border: 12px solid transparent;
-            border-bottom: 12px solid var(--color-accent);
-            border-radius: 50% 50% 0 0;
-            box-shadow: 
-                0 8px 25px rgba(0, 193, 162, 0.4),
-                inset 0 -2px 6px rgba(255, 255, 255, 0.3);
-        }
-
-        .icon-bridge-arch::before {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: -12px;
-            right: -12px;
-            height: 8px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
-            border-radius: 50% 50% 0 0;
-        }
-
-        /* 다리 아치 내부 돌 패턴 */
-        .icon-bridge-arch-stone {
-            position: absolute;
-            bottom: -8px;
-            width: 14px;
-            height: 10px;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.06) 100%);
-            border-radius: 7px 7px 0 0;
-        }
-
-        .icon-bridge-arch-stone:nth-of-type(1) { left: 8px; }
-        .icon-bridge-arch-stone:nth-of-type(2) { left: 26px; }
-        .icon-bridge-arch-stone:nth-of-type(3) { left: 44px; }
-        .icon-bridge-arch-stone:nth-of-type(4) { right: 44px; }
-        .icon-bridge-arch-stone:nth-of-type(5) { right: 26px; }
-        .icon-bridge-arch-stone:nth-of-type(6) { right: 8px; }
-
-        /* 다리 데크 (상단 평평한 부분) */
-        .icon-bridge-deck {
-            position: absolute;
-            bottom: 45px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 130px;
-            height: 14px;
-            background: linear-gradient(135deg, #00d4a8 0%, var(--color-accent) 100%);
-            border-radius: 3px;
-            box-shadow: 
-                0 6px 20px rgba(0, 193, 162, 0.5),
-                inset 0 2px 4px rgba(255, 255, 255, 0.5),
-                inset 0 -2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .icon-bridge-deck::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
             right: 0;
-            height: 50%;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
-            border-radius: 3px 3px 0 0;
+            width: 92px;
+            height: 92px;
+            background: linear-gradient(135deg, #00C1A2 0%, #00E6BB 50%, #4FFFDF 100%);
+            border-radius: 12px;
+            box-shadow: 
+                0 20px 45px rgba(0, 193, 162, 0.5),
+                inset 0 6px 15px rgba(255, 255, 255, 0.6),
+                inset 0 -6px 15px rgba(0, 0, 0, 0.2);
+            transform: translateZ(20px) translateX(8px);
+            clip-path: polygon(
+                50% 0%, 100% 0%, 100% 100%, 50% 100%, 50% 65%, 40% 65%, 40% 35%, 50% 35%
+            );
         }
 
-        /* 다리 데크 라인 장식 */
-        .icon-bridge-deck-line {
+        .icon-puzzle-piece-2::before {
+            content: '';
             position: absolute;
-            top: 3px;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 1px;
+            top: 8px;
+            left: 8px;
+            right: 40%;
+            bottom: 55%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.2) 100%);
+            border-radius: 12px 0 0 0;
+            filter: blur(4px);
         }
 
-        .icon-bridge-deck-line:nth-of-type(1) { left: 10px; width: 18px; }
-        .icon-bridge-deck-line:nth-of-type(2) { left: 32px; width: 18px; }
-        .icon-bridge-deck-line:nth-of-type(3) { left: 54px; width: 18px; }
-        .icon-bridge-deck-line:nth-of-type(4) { right: 32px; width: 18px; }
-        .icon-bridge-deck-line:nth-of-type(5) { right: 10px; width: 18px; }
-
-        /* 왼쪽 장식 볼 */
-        .icon-bridge-ball-left-1 {
+        /* 아래 돌기 - 더 뚜렷하게 */
+        .icon-puzzle-piece-2::after {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 18px;
-            width: 16px;
-            height: 16px;
-            background: radial-gradient(circle at 30% 30%, #f5f7fa 0%, #e8eaed 100%);
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #00D4A8 0%, #00FFCC 100%);
             border-radius: 50%;
             box-shadow: 
-                0 4px 12px rgba(0, 0, 0, 0.25),
-                inset 0 2px 4px rgba(255, 255, 255, 0.8),
-                inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+                0 12px 20px rgba(0, 193, 162, 0.5),
+                inset 0 4px 8px rgba(255, 255, 255, 0.6),
+                inset 0 -3px 6px rgba(0, 0, 0, 0.25);
         }
 
-        .icon-bridge-ball-left-2 {
+        /* 왼쪽 하단 퍼즐 조각 - 더 명확한 퍼즐 모양 */
+        .icon-puzzle-piece-3 {
             position: absolute;
-            top: 25px;
-            left: 5px;
-            width: 14px;
-            height: 14px;
-            background: radial-gradient(circle at 30% 30%, #f5f7fa 0%, #e8eaed 100%);
+            bottom: 0;
+            left: 0;
+            width: 92px;
+            height: 92px;
+            background: linear-gradient(135deg, #7B68EE 0%, #9B88FF 50%, #B8A4FF 100%);
+            border-radius: 12px;
+            box-shadow: 
+                0 20px 45px rgba(123, 104, 238, 0.5),
+                inset 0 6px 15px rgba(255, 255, 255, 0.6),
+                inset 0 -6px 15px rgba(0, 0, 0, 0.2);
+            transform: translateZ(15px) translateY(8px);
+            clip-path: polygon(
+                0% 0%, 50% 0%, 50% 35%, 60% 35%, 60% 65%, 50% 65%, 50% 100%, 0% 100%
+            );
+        }
+
+        .icon-puzzle-piece-3::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 40%;
+            bottom: 55%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.2) 100%);
+            border-radius: 12px 0 0 0;
+            filter: blur(4px);
+        }
+
+        /* 위 홈 - 더 명확하게 */
+        .icon-puzzle-piece-3::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 42px;
+            height: 42px;
+            background: radial-gradient(circle, rgba(11, 25, 70, 0.85) 0%, rgba(26, 58, 110, 0.95) 100%);
             border-radius: 50%;
             box-shadow: 
-                0 4px 12px rgba(0, 0, 0, 0.25),
-                inset 0 2px 4px rgba(255, 255, 255, 0.8),
-                inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+                inset 0 4px 10px rgba(0, 0, 0, 0.7),
+                inset 0 -3px 6px rgba(255, 255, 255, 0.15);
         }
 
-        /* 오른쪽 장식 볼 */
-        .icon-bridge-ball-right-1 {
+        /* 오른쪽 하단 퍼즐 조각 (앞으로 나온 메인 조각) - 더 명확한 퍼즐 모양 */
+        .icon-puzzle-piece-4 {
             position: absolute;
-            top: 0;
-            right: 18px;
-            width: 16px;
-            height: 16px;
-            background: radial-gradient(circle at 30% 30%, #f5f7fa 0%, #e8eaed 100%);
+            bottom: 0;
+            right: 0;
+            width: 92px;
+            height: 92px;
+            background: linear-gradient(135deg, #00B8D4 0%, #00D4E6 50%, #4DFFFF 100%);
+            border-radius: 12px;
+            box-shadow: 
+                0 25px 50px rgba(0, 184, 212, 0.6),
+                inset 0 8px 18px rgba(255, 255, 255, 0.7),
+                inset 0 -8px 18px rgba(0, 0, 0, 0.25);
+            transform: translateZ(35px) translateX(8px) translateY(8px);
+            clip-path: polygon(
+                50% 0%, 100% 0%, 100% 100%, 50% 100%, 50% 65%, 40% 65%, 40% 35%, 50% 35%
+            );
+        }
+
+        .icon-puzzle-piece-4::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: 35%;
+            bottom: 50%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.3) 100%);
+            border-radius: 12px 0 0 0;
+            filter: blur(5px);
+        }
+
+        /* 왼쪽 홈 - 더 명확하게 */
+        .icon-puzzle-piece-4::after {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 42px;
+            height: 42px;
+            background: radial-gradient(circle, rgba(11, 25, 70, 0.85) 0%, rgba(26, 58, 110, 0.95) 100%);
             border-radius: 50%;
             box-shadow: 
-                0 4px 12px rgba(0, 0, 0, 0.25),
-                inset 0 2px 4px rgba(255, 255, 255, 0.8),
-                inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+                inset 0 4px 10px rgba(0, 0, 0, 0.7),
+                inset 0 -3px 6px rgba(255, 255, 255, 0.15);
         }
 
-        .icon-bridge-ball-right-2 {
-            position: absolute;
-            top: 25px;
-            right: 5px;
-            width: 14px;
-            height: 14px;
-            background: radial-gradient(circle at 30% 30%, #f5f7fa 0%, #e8eaed 100%);
-            border-radius: 50%;
-            box-shadow: 
-                0 4px 12px rgba(0, 0, 0, 0.25),
-                inset 0 2px 4px rgba(255, 255, 255, 0.8),
-                inset 0 -2px 4px rgba(0, 0, 0, 0.15);
-        }
-
-        /* 중앙 장식 볼 */
-        .icon-bridge-ball-center {
-            position: absolute;
-            top: 10px;
-            right: 30px;
-            width: 15px;
-            height: 15px;
-            background: radial-gradient(circle at 30% 30%, #f5f7fa 0%, #e8eaed 100%);
-            border-radius: 50%;
-            box-shadow: 
-                0 4px 12px rgba(0, 0, 0, 0.25),
-                inset 0 2px 4px rgba(255, 255, 255, 0.8),
-                inset 0 -2px 4px rgba(0, 0, 0, 0.15);
-        }
-
-        /* 2단계: 저울 아이콘 - 자연스러운 형태로 완전 재구성 */
+        /* 2단계: 저울 아이콘 */
         .icon-scale {
-            width: 150px;
-            height: 145px;
+            width: 250px;
+            height: 240px;
             position: relative;
         }
 
-        /* 책 3권 - 더 입체적으로 */
         .icon-scale-book-1 {
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 95px;
-            height: 12px;
+            width: 160px;
+            height: 20px;
             background: linear-gradient(135deg, #e8ebef 0%, #d4d9e0 100%);
-            border-radius: 1px 1px 2px 2px;
+            border-radius: 2px 2px 3px 3px;
             box-shadow: 
-                0 3px 6px rgba(0, 0, 0, 0.15),
-                inset 0 1px 2px rgba(255, 255, 255, 0.6),
-                2px 0 4px rgba(0, 0, 0, 0.1);
+                0 5px 10px rgba(0, 0, 0, 0.15),
+                inset 0 2px 3px rgba(255, 255, 255, 0.6),
+                3px 0 6px rgba(0, 0, 0, 0.1);
         }
 
         .icon-scale-book-2 {
             position: absolute;
-            bottom: 12px;
+            bottom: 20px;
             left: 50%;
-            transform: translateX(-50%) translateX(-2px);
-            width: 98px;
-            height: 12px;
+            transform: translateX(-50%) translateX(-3px);
+            width: 165px;
+            height: 20px;
             background: linear-gradient(135deg, #dde1e6 0%, #c5cbd4 100%);
-            border-radius: 1px 1px 2px 2px;
+            border-radius: 2px 2px 3px 3px;
             box-shadow: 
-                0 3px 6px rgba(0, 0, 0, 0.15),
-                inset 0 1px 2px rgba(255, 255, 255, 0.5),
-                2px 0 4px rgba(0, 0, 0, 0.1);
+                0 5px 10px rgba(0, 0, 0, 0.15),
+                inset 0 2px 3px rgba(255, 255, 255, 0.5),
+                3px 0 6px rgba(0, 0, 0, 0.1);
         }
 
         .icon-scale-book-3 {
             position: absolute;
-            bottom: 24px;
+            bottom: 40px;
             left: 50%;
-            transform: translateX(-50%) translateX(-4px);
-            width: 102px;
-            height: 13px;
+            transform: translateX(-50%) translateX(-6px);
+            width: 170px;
+            height: 22px;
             background: linear-gradient(135deg, var(--color-accent) 0%, #00b894 100%);
-            border-radius: 2px 2px 3px 3px;
+            border-radius: 3px 3px 4px 4px;
             box-shadow: 
-                0 4px 10px rgba(0, 193, 162, 0.35),
-                inset 0 1px 3px rgba(255, 255, 255, 0.5),
-                2px 0 4px rgba(0, 0, 0, 0.15);
+                0 6px 15px rgba(0, 193, 162, 0.35),
+                inset 0 2px 4px rgba(255, 255, 255, 0.5),
+                3px 0 6px rgba(0, 0, 0, 0.15);
         }
 
-        /* 책 옆면 효과 */
         .icon-scale-book-1::after,
         .icon-scale-book-2::after,
         .icon-scale-book-3::after {
             content: '';
             position: absolute;
             top: 0;
-            right: -2px;
-            width: 2px;
+            right: -3px;
+            width: 3px;
             height: 100%;
             background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
         }
 
-        /* 저울 받침대 - 더 부드럽게 */
         .icon-scale-base {
             position: absolute;
-            bottom: 37px;
+            bottom: 62px;
             left: 50%;
             transform: translateX(-50%);
-            width: 38px;
-            height: 20px;
+            width: 64px;
+            height: 34px;
             background: radial-gradient(ellipse at center, #2a3442 0%, #1a2230 100%);
             border-radius: 50% / 40%;
             box-shadow: 
-                0 6px 15px rgba(0, 0, 0, 0.5),
-                inset 0 2px 4px rgba(255, 255, 255, 0.2),
-                inset 0 -3px 6px rgba(0, 0, 0, 0.4);
+                0 10px 20px rgba(0, 0, 0, 0.5),
+                inset 0 3px 6px rgba(255, 255, 255, 0.2),
+                inset 0 -4px 8px rgba(0, 0, 0, 0.4);
         }
 
         .icon-scale-base::before {
@@ -576,36 +525,34 @@
             border-radius: 50% 50% 0 0;
         }
 
-        /* 저울 하단 장식 링 */
         .icon-scale-ring-bottom {
             position: absolute;
-            bottom: 57px;
+            bottom: 96px;
             left: 50%;
             transform: translateX(-50%);
-            width: 22px;
-            height: 7px;
+            width: 36px;
+            height: 12px;
             background: linear-gradient(135deg, var(--color-accent) 0%, #00d4a8 100%);
             border-radius: 50%;
             box-shadow: 
-                0 3px 8px rgba(0, 193, 162, 0.6),
-                inset 0 1px 2px rgba(255, 255, 255, 0.6),
-                inset 0 -1px 3px rgba(0, 0, 0, 0.2);
+                0 5px 12px rgba(0, 193, 162, 0.6),
+                inset 0 2px 3px rgba(255, 255, 255, 0.6),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        /* 저울 기둥 - 더 부드럽게 */
         .icon-scale-post {
             position: absolute;
-            bottom: 64px;
+            bottom: 108px;
             left: 50%;
             transform: translateX(-50%);
-            width: 15px;
-            height: 52px;
+            width: 25px;
+            height: 86px;
             background: linear-gradient(135deg, #34495e 0%, #2c3e50 50%, #1a2735 100%);
-            border-radius: 8px;
+            border-radius: 12px;
             box-shadow: 
-                0 4px 15px rgba(0, 0, 0, 0.5),
-                inset 1.5px 0 3px rgba(255, 255, 255, 0.25),
-                inset -1px 0 2px rgba(0, 0, 0, 0.3);
+                0 6px 20px rgba(0, 0, 0, 0.5),
+                inset 2px 0 4px rgba(255, 255, 255, 0.25),
+                inset -2px 0 3px rgba(0, 0, 0, 0.3);
         }
 
         .icon-scale-post::before {
@@ -616,39 +563,37 @@
             width: 50%;
             height: 100%;
             background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
-            border-radius: 8px 0 0 8px;
+            border-radius: 12px 0 0 12px;
         }
 
-        /* 저울 상단 장식 링 */
         .icon-scale-ring-top {
             position: absolute;
-            top: 28px;
+            top: 46px;
             left: 50%;
             transform: translateX(-50%);
-            width: 22px;
-            height: 7px;
+            width: 36px;
+            height: 12px;
             background: linear-gradient(135deg, var(--color-accent) 0%, #00d4a8 100%);
             border-radius: 50%;
             box-shadow: 
-                0 3px 8px rgba(0, 193, 162, 0.6),
-                inset 0 1px 2px rgba(255, 255, 255, 0.6),
-                inset 0 -1px 3px rgba(0, 0, 0, 0.2);
+                0 5px 12px rgba(0, 193, 162, 0.6),
+                inset 0 2px 3px rgba(255, 255, 255, 0.6),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        /* 저울 상단 둥근 부분 - 더 입체적으로 */
         .icon-scale-top {
             position: absolute;
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 26px;
-            height: 26px;
+            width: 44px;
+            height: 44px;
             background: radial-gradient(circle at 30% 30%, #3d5368 0%, #2c3e50 50%, #1a2735 100%);
             border-radius: 50%;
             box-shadow: 
-                0 5px 15px rgba(0, 0, 0, 0.5),
-                inset 2px 2px 5px rgba(255, 255, 255, 0.25),
-                inset -2px -2px 6px rgba(0, 0, 0, 0.4);
+                0 8px 20px rgba(0, 0, 0, 0.5),
+                inset 3px 3px 8px rgba(255, 255, 255, 0.25),
+                inset -3px -3px 10px rgba(0, 0, 0, 0.4);
         }
 
         .icon-scale-top::before {
@@ -660,23 +605,22 @@
             height: 25%;
             background: rgba(255, 255, 255, 0.35);
             border-radius: 50%;
-            filter: blur(3px);
+            filter: blur(5px);
         }
 
-        /* 저울 균형대 - 더 자연스러운 곡선 */
         .icon-scale-beam {
             position: absolute;
-            top: 18px;
+            top: 30px;
             left: 50%;
             transform: translateX(-50%);
-            width: 145px;
-            height: 10px;
+            width: 240px;
+            height: 16px;
             background: linear-gradient(135deg, #34495e 0%, #2c3e50 50%, #1a2735 100%);
             border-radius: 50%;
             box-shadow: 
-                0 5px 12px rgba(0, 0, 0, 0.4),
-                inset 0 2px 3px rgba(255, 255, 255, 0.25),
-                inset 0 -2px 3px rgba(0, 0, 0, 0.35);
+                0 8px 18px rgba(0, 0, 0, 0.4),
+                inset 0 3px 5px rgba(255, 255, 255, 0.25),
+                inset 0 -3px 5px rgba(0, 0, 0, 0.35);
         }
 
         .icon-scale-beam::before {
@@ -690,18 +634,17 @@
             border-radius: 50% 50% 0 0;
         }
 
-        /* 저울 연결 와이어 (양쪽 모두) - 더 자연스럽게 */
         .icon-scale-wire-left {
             position: absolute;
-            top: 28px;
-            left: 8px;
-            width: 52px;
-            height: 38px;
-            border: 2.5px solid rgba(220, 225, 230, 0.7);
+            top: 46px;
+            left: 13px;
+            width: 86px;
+            height: 63px;
+            border: 4px solid rgba(220, 225, 230, 0.7);
             border-bottom: none;
             border-radius: 50% 50% 0 0;
             transform: rotate(-3deg);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
         }
 
         .icon-scale-wire-left::before,
@@ -709,30 +652,30 @@
             content: '';
             position: absolute;
             bottom: 0;
-            width: 2.5px;
-            height: 10px;
+            width: 4px;
+            height: 16px;
             background: rgba(220, 225, 230, 0.7);
         }
 
         .icon-scale-wire-left::before {
-            left: -2.5px;
+            left: -4px;
         }
 
         .icon-scale-wire-left::after {
-            right: -2.5px;
+            right: -4px;
         }
 
         .icon-scale-wire-right {
             position: absolute;
-            top: 28px;
-            right: 8px;
-            width: 52px;
-            height: 38px;
-            border: 2.5px solid rgba(220, 225, 230, 0.7);
+            top: 46px;
+            right: 13px;
+            width: 86px;
+            height: 63px;
+            border: 4px solid rgba(220, 225, 230, 0.7);
             border-bottom: none;
             border-radius: 50% 50% 0 0;
             transform: rotate(3deg);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
         }
 
         .icon-scale-wire-right::before,
@@ -740,31 +683,30 @@
             content: '';
             position: absolute;
             bottom: 0;
-            width: 2.5px;
-            height: 10px;
+            width: 4px;
+            height: 16px;
             background: rgba(220, 225, 230, 0.7);
         }
 
         .icon-scale-wire-right::before {
-            left: -2.5px;
+            left: -4px;
         }
 
         .icon-scale-wire-right::after {
-            right: -2.5px;
+            right: -4px;
         }
 
-        /* 저울 접시 - 더 입체적으로 */
         .icon-scale-pan {
             position: absolute;
-            top: 75px;
-            width: 48px;
-            height: 34px;
+            top: 125px;
+            width: 80px;
+            height: 56px;
             background: radial-gradient(ellipse at center top, #00E6BB 0%, var(--color-accent) 40%, #00a889 100%);
-            border-radius: 0 0 24px 24px;
+            border-radius: 0 0 40px 40px;
             box-shadow: 
-                0 10px 25px rgba(0, 193, 162, 0.6),
-                inset 0 4px 10px rgba(255, 255, 255, 0.6),
-                inset 0 -5px 12px rgba(0, 0, 0, 0.25);
+                0 15px 35px rgba(0, 193, 162, 0.6),
+                inset 0 6px 15px rgba(255, 255, 255, 0.6),
+                inset 0 -8px 18px rgba(0, 0, 0, 0.25);
         }
 
         .icon-scale-pan::before {
@@ -775,51 +717,50 @@
             right: 5%;
             height: 45%;
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
-            border-radius: 0 0 24px 24px;
+            border-radius: 0 0 40px 40px;
         }
 
         .icon-scale-pan::after {
             content: '';
             position: absolute;
-            top: -5px;
+            top: -8px;
             left: 0;
             right: 0;
-            height: 5px;
+            height: 8px;
             background: linear-gradient(135deg, #2a3442 0%, #1a2230 100%);
-            border-radius: 3px 3px 0 0;
+            border-radius: 5px 5px 0 0;
             box-shadow: 
-                0 2px 5px rgba(0, 0, 0, 0.3),
-                inset 0 1px 2px rgba(255, 255, 255, 0.2);
+                0 3px 8px rgba(0, 0, 0, 0.3),
+                inset 0 2px 3px rgba(255, 255, 255, 0.2);
         }
 
         .icon-scale-pan:first-of-type {
-            left: 4px;
+            left: 7px;
         }
 
         .icon-scale-pan:last-of-type {
-            right: 4px;
+            right: 7px;
         }
 
         /* 3단계: 돋보기와 체크리스트 아이콘 */
         .icon-search {
-            width: 150px;
-            height: 150px;
+            width: 250px;
+            height: 250px;
             position: relative;
         }
 
-        /* 뒷배경 폴더/문서 */
         .icon-search-folder {
             position: absolute;
-            top: 5px;
-            left: 10px;
-            width: 85px;
-            height: 110px;
+            top: 8px;
+            left: 16px;
+            width: 140px;
+            height: 180px;
             background: linear-gradient(135deg, var(--color-accent) 0%, #00b894 100%);
-            border-radius: 8px;
+            border-radius: 12px;
             box-shadow: 
-                0 10px 30px rgba(0, 193, 162, 0.4),
-                inset 0 2px 6px rgba(255, 255, 255, 0.4),
-                inset 0 -3px 8px rgba(0, 0, 0, 0.2);
+                0 15px 40px rgba(0, 193, 162, 0.4),
+                inset 0 3px 8px rgba(255, 255, 255, 0.4),
+                inset 0 -4px 10px rgba(0, 0, 0, 0.2);
             transform: rotate(-5deg);
         }
 
@@ -831,36 +772,35 @@
             right: 0;
             height: 45%;
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
-            border-radius: 8px 8px 0 0;
+            border-radius: 12px 12px 0 0;
         }
 
         .icon-search-folder::after {
             content: '';
             position: absolute;
-            top: -8px;
+            top: -14px;
             left: 0;
-            width: 35px;
-            height: 10px;
+            width: 58px;
+            height: 16px;
             background: linear-gradient(135deg, var(--color-accent) 0%, #00b894 100%);
-            border-radius: 4px 4px 0 0;
+            border-radius: 6px 6px 0 0;
             box-shadow: 
-                0 2px 6px rgba(0, 193, 162, 0.3),
-                inset 0 1px 2px rgba(255, 255, 255, 0.4);
+                0 3px 8px rgba(0, 193, 162, 0.3),
+                inset 0 2px 3px rgba(255, 255, 255, 0.4);
         }
 
-        /* 앞쪽 체크리스트 문서 */
         .icon-search-document {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 75px;
-            height: 95px;
+            top: 25px;
+            right: 25px;
+            width: 125px;
+            height: 158px;
             background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
-            border-radius: 6px;
+            border-radius: 10px;
             box-shadow: 
-                0 12px 35px rgba(0, 0, 0, 0.2),
-                inset 0 2px 4px rgba(255, 255, 255, 0.8),
-                inset 0 -2px 6px rgba(0, 0, 0, 0.05);
+                0 18px 45px rgba(0, 0, 0, 0.2),
+                inset 0 3px 6px rgba(255, 255, 255, 0.8),
+                inset 0 -3px 8px rgba(0, 0, 0, 0.05);
             transform: rotate(3deg);
         }
 
@@ -872,22 +812,21 @@
             right: 0;
             height: 40%;
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, transparent 100%);
-            border-radius: 6px 6px 0 0;
+            border-radius: 10px 10px 0 0;
         }
 
-        /* 체크리스트 항목 1 (체크) */
         .icon-search-check-1 {
             position: absolute;
-            top: 35px;
-            right: 55px;
-            width: 16px;
-            height: 16px;
+            top: 58px;
+            right: 92px;
+            width: 26px;
+            height: 26px;
             background: linear-gradient(135deg, var(--color-accent) 0%, #00E6BB 100%);
             border-radius: 50%;
             box-shadow: 
-                0 3px 8px rgba(0, 193, 162, 0.4),
-                inset 0 1px 3px rgba(255, 255, 255, 0.6),
-                inset 0 -1px 3px rgba(0, 0, 0, 0.2);
+                0 5px 12px rgba(0, 193, 162, 0.4),
+                inset 0 2px 4px rgba(255, 255, 255, 0.6),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .icon-search-check-1::before {
@@ -897,35 +836,33 @@
             left: 50%;
             transform: translate(-50%, -50%);
             color: white;
-            font-size: 11px;
+            font-size: 18px;
             font-weight: bold;
         }
 
-        /* 체크리스트 라인 1 */
         .icon-search-line-1 {
             position: absolute;
-            top: 42px;
-            right: 23px;
-            width: 28px;
-            height: 3px;
+            top: 70px;
+            right: 38px;
+            width: 46px;
+            height: 5px;
             background: linear-gradient(90deg, #e8eaed 0%, #f0f2f5 100%);
-            border-radius: 2px;
-            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+            border-radius: 3px;
+            box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.08);
         }
 
-        /* 체크리스트 항목 2 (체크) */
         .icon-search-check-2 {
             position: absolute;
-            top: 56px;
-            right: 55px;
-            width: 16px;
-            height: 16px;
+            top: 93px;
+            right: 92px;
+            width: 26px;
+            height: 26px;
             background: linear-gradient(135deg, var(--color-accent) 0%, #00E6BB 100%);
             border-radius: 50%;
             box-shadow: 
-                0 3px 8px rgba(0, 193, 162, 0.4),
-                inset 0 1px 3px rgba(255, 255, 255, 0.6),
-                inset 0 -1px 3px rgba(0, 0, 0, 0.2);
+                0 5px 12px rgba(0, 193, 162, 0.4),
+                inset 0 2px 4px rgba(255, 255, 255, 0.6),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .icon-search-check-2::before {
@@ -935,35 +872,33 @@
             left: 50%;
             transform: translate(-50%, -50%);
             color: white;
-            font-size: 11px;
+            font-size: 18px;
             font-weight: bold;
         }
 
-        /* 체크리스트 라인 2 */
         .icon-search-line-2 {
             position: absolute;
-            top: 63px;
-            right: 23px;
-            width: 28px;
-            height: 3px;
+            top: 105px;
+            right: 38px;
+            width: 46px;
+            height: 5px;
             background: linear-gradient(90deg, #e8eaed 0%, #f0f2f5 100%);
-            border-radius: 2px;
-            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+            border-radius: 3px;
+            box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.08);
         }
 
-        /* 체크리스트 항목 3 (X) */
         .icon-search-check-3 {
             position: absolute;
-            top: 77px;
-            right: 55px;
-            width: 16px;
-            height: 16px;
+            top: 128px;
+            right: 92px;
+            width: 26px;
+            height: 26px;
             background: linear-gradient(135deg, #e8eaed 0%, #d4d9e0 100%);
             border-radius: 50%;
             box-shadow: 
-                0 2px 6px rgba(0, 0, 0, 0.15),
-                inset 0 1px 2px rgba(255, 255, 255, 0.5),
-                inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+                0 3px 10px rgba(0, 0, 0, 0.15),
+                inset 0 2px 3px rgba(255, 255, 255, 0.5),
+                inset 0 -2px 3px rgba(0, 0, 0, 0.1);
         }
 
         .icon-search-check-3::before {
@@ -973,46 +908,43 @@
             left: 50%;
             transform: translate(-50%, -50%);
             color: #95a5a6;
-            font-size: 11px;
+            font-size: 18px;
             font-weight: bold;
         }
 
-        /* 체크리스트 라인 3 */
         .icon-search-line-3 {
             position: absolute;
-            top: 84px;
-            right: 23px;
-            width: 28px;
-            height: 3px;
+            top: 140px;
+            right: 38px;
+            width: 46px;
+            height: 5px;
             background: linear-gradient(90deg, #e8eaed 0%, #f0f2f5 100%);
-            border-radius: 2px;
-            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+            border-radius: 3px;
+            box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.08);
         }
 
-        /* 돋보기 */
         .icon-search-glass {
             position: absolute;
-            bottom: 15px;
-            left: 20px;
-            width: 55px;
-            height: 55px;
+            bottom: 25px;
+            left: 33px;
+            width: 92px;
+            height: 92px;
             z-index: 10;
         }
 
-        /* 돋보기 렌즈 */
         .icon-search-lens {
             position: absolute;
             top: 0;
             left: 0;
-            width: 45px;
-            height: 45px;
+            width: 75px;
+            height: 75px;
             background: radial-gradient(circle at 30% 30%, rgba(0, 230, 187, 0.3) 0%, var(--color-accent) 100%);
             border-radius: 50%;
-            border: 5px solid var(--color-accent);
+            border: 8px solid var(--color-accent);
             box-shadow: 
-                0 8px 25px rgba(0, 193, 162, 0.5),
-                inset 0 3px 8px rgba(255, 255, 255, 0.5),
-                inset 0 -3px 8px rgba(0, 0, 0, 0.2);
+                0 12px 35px rgba(0, 193, 162, 0.5),
+                inset 0 5px 12px rgba(255, 255, 255, 0.5),
+                inset 0 -5px 12px rgba(0, 0, 0, 0.2);
         }
 
         .icon-search-lens::before {
@@ -1024,37 +956,35 @@
             height: 35%;
             background: rgba(255, 255, 255, 0.6);
             border-radius: 50%;
-            filter: blur(6px);
+            filter: blur(8px);
             transform: rotate(-30deg);
         }
 
-        /* 돋보기 내부 하이라이트 */
         .icon-search-lens::after {
             content: '';
             position: absolute;
             bottom: 20%;
             right: 15%;
-            width: 15px;
-            height: 6px;
+            width: 25px;
+            height: 10px;
             background: rgba(255, 255, 255, 0.4);
             border-radius: 50%;
-            filter: blur(3px);
+            filter: blur(5px);
         }
 
-        /* 돋보기 손잡이 */
         .icon-search-handle {
             position: absolute;
-            bottom: -8px;
-            right: -8px;
-            width: 22px;
-            height: 22px;
+            bottom: -13px;
+            right: -13px;
+            width: 36px;
+            height: 36px;
             background: linear-gradient(135deg, var(--color-accent) 0%, #00b894 100%);
             border-radius: 50% 50% 50% 20%;
             transform: rotate(45deg);
             box-shadow: 
-                0 6px 18px rgba(0, 193, 162, 0.5),
-                inset 1px 1px 3px rgba(255, 255, 255, 0.5),
-                inset -1px -1px 3px rgba(0, 0, 0, 0.2);
+                0 10px 25px rgba(0, 193, 162, 0.5),
+                inset 2px 2px 5px rgba(255, 255, 255, 0.5),
+                inset -2px -2px 5px rgba(0, 0, 0, 0.2);
         }
 
         .icon-search-handle::before {
@@ -1066,30 +996,29 @@
             height: 40%;
             background: rgba(255, 255, 255, 0.4);
             border-radius: 50%;
-            filter: blur(2px);
+            filter: blur(3px);
         }
 
         /* 4단계: 대시보드 분석 아이콘 */
         .icon-chart {
-            width: 160px;
-            height: 145px;
+            width: 265px;
+            height: 240px;
             position: relative;
         }
 
-        /* 메인 대시보드 카드 */
         .icon-chart-main {
             position: absolute;
-            top: 30px;
+            top: 50px;
             left: 50%;
             transform: translateX(-50%);
-            width: 135px;
-            height: 95px;
+            width: 225px;
+            height: 158px;
             background: linear-gradient(135deg, var(--color-accent) 0%, #00b894 100%);
-            border-radius: 12px;
+            border-radius: 20px;
             box-shadow: 
-                0 15px 40px rgba(0, 193, 162, 0.5),
-                inset 0 2px 6px rgba(255, 255, 255, 0.5),
-                inset 0 -3px 8px rgba(0, 0, 0, 0.2);
+                0 20px 55px rgba(0, 193, 162, 0.5),
+                inset 0 3px 8px rgba(255, 255, 255, 0.5),
+                inset 0 -4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .icon-chart-main::before {
@@ -1100,95 +1029,92 @@
             right: 0;
             height: 45%;
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
-            border-radius: 12px 12px 0 0;
+            border-radius: 20px 20px 0 0;
         }
 
-        /* 대시보드 우측 선 장식 */
         .icon-chart-main::after {
             content: '';
             position: absolute;
-            top: 12px;
-            right: 8px;
-            width: 3px;
-            height: 70px;
+            top: 20px;
+            right: 13px;
+            width: 5px;
+            height: 116px;
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 100%);
-            border-radius: 2px;
+            border-radius: 3px;
         }
 
-        /* 대시보드 텍스트 라인들 */
         .icon-chart-line-1 {
             position: absolute;
-            top: 47px;
-            left: 28px;
-            width: 75px;
-            height: 4px;
+            top: 78px;
+            left: 46px;
+            width: 125px;
+            height: 6px;
             background: rgba(255, 255, 255, 0.7);
-            border-radius: 2px;
+            border-radius: 3px;
         }
 
         .icon-chart-line-2 {
             position: absolute;
-            top: 57px;
-            left: 28px;
-            width: 52px;
-            height: 4px;
+            top: 95px;
+            left: 46px;
+            width: 86px;
+            height: 6px;
             background: rgba(255, 255, 255, 0.6);
-            border-radius: 2px;
+            border-radius: 3px;
         }
 
         .icon-chart-line-3 {
             position: absolute;
-            top: 67px;
-            left: 28px;
-            width: 68px;
-            height: 4px;
+            top: 112px;
+            left: 46px;
+            width: 113px;
+            height: 6px;
             background: rgba(255, 255, 255, 0.65);
-            border-radius: 2px;
+            border-radius: 3px;
         }
 
         .icon-chart-line-4 {
             position: absolute;
-            top: 82px;
-            left: 28px;
-            width: 80px;
-            height: 4px;
+            top: 136px;
+            left: 46px;
+            width: 133px;
+            height: 6px;
             background: rgba(255, 255, 255, 0.7);
-            border-radius: 2px;
+            border-radius: 3px;
         }
 
         .icon-chart-line-5 {
             position: absolute;
-            top: 92px;
-            left: 28px;
-            width: 65px;
-            height: 4px;
+            top: 153px;
+            left: 46px;
+            width: 108px;
+            height: 6px;
             background: rgba(255, 255, 255, 0.6);
-            border-radius: 2px;
+            border-radius: 3px;
         }
 
         .icon-chart-line-6 {
             position: absolute;
-            top: 102px;
-            left: 28px;
-            width: 75px;
-            height: 4px;
+            top: 170px;
+            left: 46px;
+            width: 125px;
+            height: 6px;
             background: rgba(255, 255, 255, 0.65);
-            border-radius: 2px;
+            border-radius: 3px;
         }
 
-        /* 상단 검색 바 */
         .icon-chart-search-bar {
             position: absolute;
             top: 0;
-            left: 15px;
-            width: 95px;
-            height: 22px;
+            left: 25px;
+            width: 158px;
+            height: 36px;
             background: linear-gradient(135deg, var(--color-accent) 0%, #00d4a8 100%);
-            border-radius: 11px;
+            border-radius: 18px;
             box-shadow: 
-                0 6px 20px rgba(0, 193, 162, 0.4),
-                inset 0 1px 3px rgba(255, 255, 255, 0.5),
-                inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+                0 10px 28px rgba(0, 193, 162, 0.4),
+                inset 0 2px 4px rgba(255, 255, 255, 0.5),
+                inset 0 -3px 6px rgba(0, 0, 0, 0.2);
         }
 
         .icon-chart-search-bar::before {
@@ -1199,17 +1125,16 @@
             right: 0;
             height: 50%;
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
-            border-radius: 11px 11px 0 0;
+            border-radius: 18px 18px 0 0;
         }
 
-        /* 검색 아이콘 */
         .icon-chart-search-icon {
             position: absolute;
-            top: 3px;
-            left: 22px;
-            width: 14px;
-            height: 14px;
-            border: 3px solid rgba(200, 240, 230, 0.7);
+            top: 5px;
+            left: 36px;
+            width: 23px;
+            height: 23px;
+            border: 5px solid rgba(200, 240, 230, 0.7);
             border-radius: 50%;
             background: transparent;
         }
@@ -1217,84 +1142,80 @@
         .icon-chart-search-icon::after {
             content: '';
             position: absolute;
-            bottom: -6px;
-            right: -5px;
-            width: 8px;
-            height: 3px;
+            bottom: -10px;
+            right: -8px;
+            width: 13px;
+            height: 5px;
             background: rgba(200, 240, 230, 0.7);
-            border-radius: 2px;
+            border-radius: 3px;
             transform: rotate(45deg);
         }
 
-        /* 상단 우측 점 3개 */
         .icon-chart-dots {
             position: absolute;
-            top: 8px;
-            right: 15px;
+            top: 13px;
+            right: 25px;
             display: flex;
-            gap: 4px;
+            gap: 6px;
         }
 
         .icon-chart-dot {
-            width: 5px;
-            height: 5px;
+            width: 8px;
+            height: 8px;
             background: var(--color-accent);
             border-radius: 50%;
-            box-shadow: 0 2px 4px rgba(0, 193, 162, 0.4);
+            box-shadow: 0 3px 6px rgba(0, 193, 162, 0.4);
         }
 
-        /* 좌측 하단 차트 카드 */
         .icon-chart-bars-card {
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 60px;
-            height: 65px;
+            width: 100px;
+            height: 108px;
             background: linear-gradient(135deg, rgba(0, 193, 162, 0.25) 0%, rgba(0, 193, 162, 0.15) 100%);
             backdrop-filter: blur(10px);
-            border-radius: 10px;
-            border: 2px solid rgba(0, 193, 162, 0.3);
+            border-radius: 16px;
+            border: 3px solid rgba(0, 193, 162, 0.3);
             box-shadow: 
-                0 10px 30px rgba(0, 193, 162, 0.25),
-                inset 0 1px 3px rgba(255, 255, 255, 0.3);
+                0 15px 40px rgba(0, 193, 162, 0.25),
+                inset 0 2px 4px rgba(255, 255, 255, 0.3);
         }
 
-        /* 막대 차트 */
         .icon-chart-bar {
             position: absolute;
-            bottom: 8px;
-            width: 7px;
+            bottom: 13px;
+            width: 12px;
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.5) 100%);
-            border-radius: 3px 3px 0 0;
+            border-radius: 5px 5px 0 0;
         }
 
         .icon-chart-bar:nth-child(1) {
-            left: 10px;
-            height: 15px;
-        }
-
-        .icon-chart-bar:nth-child(2) {
-            left: 20px;
+            left: 16px;
             height: 25px;
         }
 
+        .icon-chart-bar:nth-child(2) {
+            left: 33px;
+            height: 42px;
+        }
+
         .icon-chart-bar:nth-child(3) {
-            left: 30px;
-            height: 35px;
+            left: 50px;
+            height: 58px;
         }
 
         .icon-chart-bar:nth-child(4) {
-            left: 40px;
-            height: 28px;
+            left: 67px;
+            height: 46px;
         }
 
-        /* 우측 하단 원형 차트 */
         .icon-chart-pie {
             position: absolute;
-            bottom: 5px;
-            right: 5px;
-            width: 48px;
-            height: 48px;
+            bottom: 8px;
+            right: 8px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background: conic-gradient(
                 from 0deg,
@@ -1303,9 +1224,9 @@
                 rgba(180, 230, 220, 0.4) 260deg 360deg
             );
             box-shadow: 
-                0 8px 25px rgba(0, 193, 162, 0.35),
-                inset 0 2px 6px rgba(255, 255, 255, 0.4),
-                inset 0 -2px 6px rgba(0, 0, 0, 0.15);
+                0 12px 35px rgba(0, 193, 162, 0.35),
+                inset 0 3px 8px rgba(255, 255, 255, 0.4),
+                inset 0 -3px 8px rgba(0, 0, 0, 0.15);
         }
 
         .icon-chart-pie::before {
@@ -1317,22 +1238,21 @@
             height: 35%;
             background: rgba(255, 255, 255, 0.5);
             border-radius: 50%;
-            filter: blur(4px);
+            filter: blur(6px);
         }
 
-        /* 우측 상단 프로필 카드 */
         .icon-chart-profile {
             position: absolute;
-            top: 15px;
+            top: 25px;
             right: 0;
-            width: 42px;
-            height: 50px;
+            width: 70px;
+            height: 83px;
             background: linear-gradient(135deg, #00d4a8 0%, var(--color-accent) 100%);
-            border-radius: 8px;
+            border-radius: 13px;
             box-shadow: 
-                0 10px 30px rgba(0, 193, 162, 0.45),
-                inset 0 2px 4px rgba(255, 255, 255, 0.5),
-                inset 0 -2px 5px rgba(0, 0, 0, 0.2);
+                0 15px 40px rgba(0, 193, 162, 0.45),
+                inset 0 3px 6px rgba(255, 255, 255, 0.5),
+                inset 0 -3px 8px rgba(0, 0, 0, 0.2);
         }
 
         .icon-chart-profile::before {
@@ -1343,46 +1263,44 @@
             right: 0;
             height: 40%;
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
-            border-radius: 8px 8px 0 0;
+            border-radius: 13px 13px 0 0;
         }
 
-        /* 프로필 아이콘 (사람) */
         .icon-chart-profile-avatar {
             position: absolute;
-            top: 10px;
+            top: 16px;
             left: 50%;
             transform: translateX(-50%);
-            width: 16px;
-            height: 16px;
+            width: 26px;
+            height: 26px;
             background: rgba(255, 255, 255, 0.8);
             border-radius: 50%;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
         }
 
         .icon-chart-profile-avatar::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -16px;
             left: 50%;
             transform: translateX(-50%);
-            width: 22px;
-            height: 12px;
+            width: 36px;
+            height: 20px;
             background: rgba(255, 255, 255, 0.8);
-            border-radius: 6px 6px 0 0;
+            border-radius: 10px 10px 0 0;
         }
 
-        /* 우측 상단 채팅 버블 */
         .icon-chart-bubble {
             position: absolute;
             top: 0;
-            right: 10px;
-            width: 38px;
-            height: 32px;
+            right: 16px;
+            width: 63px;
+            height: 53px;
             background: linear-gradient(135deg, #f5f7fa 0%, #e8eaed 100%);
-            border-radius: 50% 50% 50% 5%;
+            border-radius: 50% 50% 50% 8%;
             box-shadow: 
-                0 8px 20px rgba(0, 0, 0, 0.15),
-                inset 0 1px 3px rgba(255, 255, 255, 0.8);
+                0 12px 28px rgba(0, 0, 0, 0.15),
+                inset 0 2px 4px rgba(255, 255, 255, 0.8);
             transform: rotate(-10deg);
         }
 
@@ -1391,7 +1309,7 @@
                 transform: translateY(0) rotateX(0deg) rotateY(0deg);
             }
             50% {
-                transform: translateY(-20px) rotateX(3deg) rotateY(-3deg);
+                transform: translateY(-25px) rotateX(3deg) rotateY(-3deg);
             }
         }
 
@@ -1401,7 +1319,7 @@
             inset: -10%;
             border-radius: 30%;
             background: radial-gradient(circle at 30% 30%, rgba(0, 193, 162, 0.15) 0%, transparent 60%);
-            filter: blur(30px);
+            filter: blur(40px);
             animation: glow 4s ease-in-out infinite;
         }
 
@@ -1419,186 +1337,26 @@
             height: 35%;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.1) 100%);
             border-radius: 50%;
-            filter: blur(20px);
+            filter: blur(25px);
             transform: rotate(-20deg);
             opacity: 0.8;
         }
 
-        /* 회전하는 테두리 링 - 아이콘 원형 테두리에만 적용 */
-        .spinning-ring {
-            position: absolute;
-            inset: -3px;
-            border-radius: 30%;
-            padding: 3px;
-            background: conic-gradient(
-                from 0deg,
-                transparent 0deg,
-                transparent 250deg,
-                rgba(0, 193, 162, 0.3) 270deg,
-                rgba(0, 193, 162, 0.8) 290deg,
-                rgba(0, 230, 187, 1) 305deg,
-                rgba(0, 193, 162, 0.8) 320deg,
-                rgba(0, 193, 162, 0.3) 340deg,
-                transparent 360deg
-            );
-            animation: spinRing 3s linear infinite;
-            pointer-events: none;
-            -webkit-mask: 
-                linear-gradient(#fff 0 0) content-box, 
-                linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-        }
-
-        @keyframes spinRing {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Aurora Edge Glow - 아이콘 테두리에만 적용 */
-        .aurora-glow {
-            position: absolute;
-            inset: -4px;
-            border-radius: 30%;
-            padding: 4px;
-            background: linear-gradient(
-                60deg,
-                rgba(0, 230, 187, 0) 0%,
-                rgba(0, 230, 187, 0.8) 15%,
-                rgba(0, 193, 162, 0.9) 25%,
-                rgba(0, 150, 200, 0.7) 35%,
-                rgba(100, 200, 255, 0.6) 45%,
-                rgba(0, 193, 162, 0.8) 55%,
-                rgba(0, 230, 187, 0.9) 65%,
-                rgba(0, 255, 200, 0.7) 75%,
-                rgba(0, 193, 162, 0.6) 85%,
-                rgba(0, 230, 187, 0) 100%
-            );
-            background-size: 200% 200%;
-            animation: auroraFlow 4s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 3;
-            -webkit-mask: 
-                linear-gradient(#fff 0 0) content-box, 
-                linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            filter: blur(1px);
-        }
-
-        @keyframes auroraFlow {
-            0% {
-                background-position: 0% 50%;
-                opacity: 0.8;
-            }
-            25% {
-                background-position: 50% 25%;
-                opacity: 1;
-            }
-            50% {
-                background-position: 100% 50%;
-                opacity: 0.9;
-            }
-            75% {
-                background-position: 50% 75%;
-                opacity: 1;
-            }
-            100% {
-                background-position: 0% 50%;
-                opacity: 0.8;
-            }
-        }
-
-        /* Aurora 외곽 글로우 */
-        .aurora-outer-glow {
-            position: absolute;
-            inset: -6px;
-            border-radius: 30%;
-            background: transparent;
-            box-shadow: 
-                0 0 20px rgba(0, 230, 187, 0.4),
-                0 0 40px rgba(0, 193, 162, 0.3),
-                0 0 60px rgba(0, 150, 200, 0.2),
-                inset 0 0 20px rgba(0, 230, 187, 0.1);
-            animation: auroraGlow 3s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 2;
-        }
-
-        @keyframes auroraGlow {
-            0%, 100% {
-                box-shadow: 
-                    0 0 20px rgba(0, 230, 187, 0.4),
-                    0 0 40px rgba(0, 193, 162, 0.3),
-                    0 0 60px rgba(0, 150, 200, 0.2),
-                    inset 0 0 20px rgba(0, 230, 187, 0.1);
-            }
-            50% {
-                box-shadow: 
-                    0 0 30px rgba(0, 230, 187, 0.6),
-                    0 0 60px rgba(0, 193, 162, 0.5),
-                    0 0 90px rgba(0, 150, 200, 0.3),
-                    inset 0 0 30px rgba(0, 230, 187, 0.2);
-            }
-        }
-
-        /* Aurora 입자 효과 */
-        .aurora-particles {
-            position: absolute;
-            inset: -10px;
-            border-radius: 30%;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.6;
-        }
-
-        .aurora-particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: radial-gradient(circle, rgba(0, 230, 187, 1) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: particleFloat 3s ease-in-out infinite;
-            box-shadow: 0 0 6px rgba(0, 230, 187, 0.8);
-        }
-
-        .aurora-particle:nth-child(1) {
-            top: 10%;
-            left: 50%;
-            animation-delay: 0s;
-        }
-
-        .aurora-particle:nth-child(2) {
-            top: 30%;
-            right: 15%;
-            animation-delay: 1s;
-        }
-
-        .aurora-particle:nth-child(3) {
-            bottom: 30%;
-            left: 15%;
-            animation-delay: 2s;
-        }
-
-        .aurora-particle:nth-child(4) {
-            top: 50%;
-            right: 10%;
-            animation-delay: 1.5s;
-        }
-
-        @keyframes particleFloat {
-            0%, 100% {
-                opacity: 0.3;
-                transform: scale(0.8) translateY(0);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.5) translateY(-5px);
-            }
-        }
-
         .content-wrapper {
-            animation: fadeIn 0.5s ease-out;
+            animation: fadeInSmooth 0.6s ease-out;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeInSmooth {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .pulse-ring {
@@ -1608,18 +1366,18 @@
             transform: translate(-50%, -50%);
             width: 100%;
             height: 100%;
-            border: 3px solid var(--color-accent);
+            border: 5px solid var(--color-accent);
             border-radius: 30%;
             animation: pulse 3s ease-out infinite;
             opacity: 0;
-            box-shadow: 0 0 40px rgba(0, 193, 162, 0.5);
+            box-shadow: 0 0 50px rgba(0, 193, 162, 0.5);
         }
 
         @keyframes pulse {
             0% {
                 transform: translate(-50%, -50%) scale(1);
                 opacity: 0.7;
-                border-width: 3px;
+                border-width: 5px;
             }
             100% {
                 transform: translate(-50%, -50%) scale(2);
@@ -1628,63 +1386,49 @@
             }
         }
 
-        .spinner {
-            width: 100%;
-            height: 100%;
-            border: 8px solid rgba(0, 193, 162, 0.2);
-            border-top: 8px solid var(--color-accent);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
         .title {
-            font-size: 32px;
+            font-size: 52px;
             font-weight: 800;
             background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 20px;
+            margin-bottom: 32px;
             line-height: 1.3;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.8px;
         }
 
         .description {
-            font-size: 16px;
+            font-size: 26px;
             color: var(--color-silver-dark);
             line-height: 1.7;
-            margin-bottom: 12px;
+            margin-bottom: 20px;
         }
 
         .sub-description {
-            font-size: 14px;
+            font-size: 23px;
             color: var(--color-silver-dark);
             line-height: 1.7;
-            padding: 16px 20px;
+            padding: 26px 33px;
             background: linear-gradient(135deg, rgba(0, 193, 162, 0.05) 0%, rgba(0, 193, 162, 0.02) 100%);
-            border-radius: 16px;
-            border-left: 4px solid var(--color-accent);
+            border-radius: 26px;
+            border-left: 6px solid var(--color-accent);
             box-shadow: 
-                0 4px 15px rgba(0, 193, 162, 0.08),
-                inset 0 1px 2px rgba(255, 255, 255, 0.5);
+                0 6px 20px rgba(0, 193, 162, 0.08),
+                inset 0 2px 3px rgba(255, 255, 255, 0.5);
         }
 
         .progress-bar {
             width: 100%;
-            max-width: 500px;
-            height: 12px;
+            max-width: 1200px;
+            height: 30px;
             background: linear-gradient(135deg, var(--color-silver-light) 0%, #ffffff 100%);
-            border-radius: 20px;
-            margin-top: 50px;
+            border-radius: 33px;
+            margin-top: 80px;
             overflow: hidden;
             box-shadow: 
-                inset 0 3px 8px rgba(0, 0, 0, 0.1),
-                0 2px 4px rgba(0, 0, 0, 0.05);
+                inset 0 4px 12px rgba(0, 0, 0, 0.1),
+                0 3px 6px rgba(0, 0, 0, 0.05);
             position: relative;
         }
 
@@ -1696,18 +1440,18 @@
             right: 0;
             height: 40%;
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
-            border-radius: 20px 20px 0 0;
+            border-radius: 33px 33px 0 0;
         }
 
         .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, var(--color-accent) 0%, #00E6BB 100%);
-            border-radius: 20px;
-            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 33px;
+            transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 
-                0 0 20px rgba(0, 193, 162, 0.6),
-                inset 0 1px 3px rgba(255, 255, 255, 0.5),
-                inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+                0 0 28px rgba(0, 193, 162, 0.6),
+                inset 0 2px 4px rgba(255, 255, 255, 0.5),
+                inset 0 -2px 3px rgba(0, 0, 0, 0.2);
             position: relative;
         }
 
@@ -1719,33 +1463,41 @@
             right: 0;
             height: 50%;
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
-            border-radius: 20px 20px 0 0;
+            border-radius: 33px 33px 0 0;
         }
 
+        /* ========== 고급스러운 결과 안내 화면 ========== */
         .result-box {
-            background: linear-gradient(135deg, var(--color-accent) 0%, #00E6BB 100%);
-            color: white;
-            padding: 40px 36px;
-            border-radius: 30px;
-            margin-top: 40px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+            color: var(--color-primary);
+            padding: 80px 70px;
+            border-radius: 40px;
+            margin-top: 60px;
             box-shadow: 
-                0 25px 70px rgba(0, 193, 162, 0.5),
-                inset 0 2px 20px rgba(255, 255, 255, 0.2),
-                inset 0 -3px 15px rgba(0, 0, 0, 0.15);
+                0 35px 90px rgba(11, 25, 70, 0.15),
+                inset 0 2px 0 rgba(255, 255, 255, 1),
+                0 0 0 1px rgba(0, 193, 162, 0.1);
             position: relative;
-            overflow: hidden;
+            overflow: visible;
+            z-index: 100;
+            border: 2px solid rgba(0, 193, 162, 0.08);
         }
 
         .result-box::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(40px);
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, 
+                rgba(0, 193, 162, 0.15) 0%,
+                rgba(0, 230, 187, 0.08) 50%,
+                rgba(0, 193, 162, 0.15) 100%
+            );
+            border-radius: 40px;
+            z-index: -1;
+            opacity: 0.6;
         }
 
         .result-box::after {
@@ -1754,81 +1506,122 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 50%;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+            height: 40%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, transparent 100%);
             pointer-events: none;
+            border-radius: 40px 40px 0 0;
+        }
+
+        .result-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 35px;
+            margin-bottom: 70px;
+            padding-bottom: 50px;
+            border-bottom: 2px solid rgba(0, 193, 162, 0.12);
+            position: relative;
         }
 
         .result-status {
-            font-size: 40px;
+            font-size: 68px;
             font-weight: 900;
-            margin-bottom: 28px;
-            text-shadow: 
-                0 2px 10px rgba(0, 0, 0, 0.3),
-                0 0 30px rgba(255, 255, 255, 0.3);
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             position: relative;
             z-index: 1;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .result-highlight {
+            font-size: 120px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--color-accent) 0%, #00E6BB 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 60px;
+            margin-top: 0;
+            letter-spacing: -3px;
+            position: relative;
+            padding-bottom: 30px;
+            line-height: 1.1;
+            filter: drop-shadow(0 4px 20px rgba(0, 193, 162, 0.2));
+        }
+
+        .result-highlight::before {
+            content: '';
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 450px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent 0%, var(--color-accent) 50%, transparent 100%);
+            opacity: 0.3;
+        }
+
+        .result-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 550px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent 0%, var(--color-accent) 50%, transparent 100%);
+            opacity: 0.3;
         }
 
         .result-amount {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            background: rgba(255, 255, 255, 0.25);
-            padding: 16px 24px;
-            border-radius: 16px;
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 0;
+            background: rgba(0, 193, 162, 0.06);
+            padding: 26px 40px;
+            border-radius: 26px;
             backdrop-filter: blur(10px);
             box-shadow: 
-                0 8px 20px rgba(0, 0, 0, 0.15),
-                inset 0 1px 2px rgba(255, 255, 255, 0.3);
+                0 10px 30px rgba(0, 193, 162, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
             position: relative;
             z-index: 1;
-            line-height: 1.5;
-        }
-
-        .result-note {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            background: rgba(255, 255, 255, 0.25);
-            padding: 16px 24px;
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-            box-shadow: 
-                0 8px 20px rgba(0, 0, 0, 0.15),
-                inset 0 1px 2px rgba(255, 255, 255, 0.3);
-            position: relative;
-            z-index: 1;
-            line-height: 1.5;
+            line-height: 1.6;
+            border: 1px solid rgba(0, 193, 162, 0.1);
         }
 
         .checkmark {
-            width: 160px;
-            height: 160px;
-            margin: 0 auto 28px;
+            width: 80px;
+            height: 80px;
+            margin: 0;
             position: relative;
             z-index: 1;
-            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35));
-            transform: perspective(800px) rotateY(-8deg) rotateX(5deg);
+            filter: drop-shadow(0 8px 20px rgba(0, 193, 162, 0.25));
+            transform: perspective(1000px) rotateY(-5deg) rotateX(3deg);
             animation: checkmarkFloat 4s ease-in-out infinite;
+            flex-shrink: 0;
         }
 
         @keyframes checkmarkFloat {
-            0%, 100% { transform: perspective(800px) rotateY(-8deg) rotateX(5deg) translateY(0); }
-            50% { transform: perspective(800px) rotateY(-8deg) rotateX(5deg) translateY(-8px); }
+            0%, 100% { transform: perspective(1000px) rotateY(-5deg) rotateX(3deg) translateY(0); }
+            50% { transform: perspective(1000px) rotateY(-5deg) rotateX(3deg) translateY(-5px); }
         }
 
-        /* 외곽 베이스 링 */
         .checkmark-base {
             position: absolute;
-            inset: -12px;
+            inset: -16px;
             border-radius: 50%;
             background: radial-gradient(circle at 35% 35%, #3d4758 0%, #2a3340 50%, #1e2531 100%);
             box-shadow: 
-                0 12px 30px rgba(0, 0, 0, 0.5),
-                inset 0 3px 8px rgba(255, 255, 255, 0.12),
-                inset 0 -4px 12px rgba(0, 0, 0, 0.5);
+                0 8px 18px rgba(0, 0, 0, 0.5),
+                inset 0 3px 5px rgba(255, 255, 255, 0.12),
+                inset 0 -3px 8px rgba(0, 0, 0, 0.5);
         }
 
         .checkmark-base::before {
@@ -1840,23 +1633,21 @@
             height: 35%;
             background: rgba(255, 255, 255, 0.08);
             border-radius: 50%;
-            filter: blur(18px);
+            filter: blur(8px);
             transform: rotate(-28deg);
         }
 
-        /* 중간 링 */
         .checkmark-ring {
             position: absolute;
-            inset: -5px;
+            inset: -7px;
             border-radius: 50%;
             background: radial-gradient(circle at 35% 35%, #404a5c 0%, #2d3748 50%, #1f2937 100%);
             box-shadow: 
-                0 6px 18px rgba(0, 0, 0, 0.4),
-                inset 0 2px 6px rgba(255, 255, 255, 0.15),
-                inset 0 -3px 8px rgba(0, 0, 0, 0.4);
+                0 5px 12px rgba(0, 0, 0, 0.4),
+                inset 0 2px 3px rgba(255, 255, 255, 0.15),
+                inset 0 -3px 5px rgba(0, 0, 0, 0.3);
         }
 
-        /* 메인 원형 */
         .checkmark-circle {
             width: 100%;
             height: 100%;
@@ -1866,14 +1657,13 @@
             align-items: center;
             justify-content: center;
             box-shadow: 
-                0 15px 40px rgba(0, 0, 0, 0.5),
-                inset 0 4px 15px rgba(255, 255, 255, 0.18),
-                inset 0 -5px 18px rgba(0, 0, 0, 0.45);
+                0 10px 25px rgba(0, 0, 0, 0.5),
+                inset 0 3px 10px rgba(255, 255, 255, 0.18),
+                inset 0 -5px 12px rgba(0, 0, 0, 0.45);
             position: relative;
             border: 2px solid rgba(0, 0, 0, 0.4);
         }
 
-        /* 중앙 하이라이트 */
         .checkmark-circle::before {
             content: '';
             position: absolute;
@@ -1883,11 +1673,10 @@
             height: 38%;
             background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.22) 0%, transparent 70%);
             border-radius: 50%;
-            filter: blur(15px);
+            filter: blur(7px);
             transform: rotate(-25deg);
         }
 
-        /* 하단 그림자 강조 */
         .checkmark-circle::after {
             content: '';
             position: absolute;
@@ -1897,22 +1686,21 @@
             height: 25%;
             background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, transparent 70%);
             border-radius: 50%;
-            filter: blur(10px);
+            filter: blur(5px);
         }
 
-        /* 체크마크 */
         .checkmark-icon {
-            font-size: 90px;
+            font-size: 46px;
             color: var(--color-accent);
             font-weight: 900;
             position: relative;
             z-index: 2;
             animation: checkmarkPop 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            filter: drop-shadow(0 8px 16px rgba(0, 193, 162, 0.6))
-                    drop-shadow(0 4px 8px rgba(0, 230, 187, 0.4));
+            filter: drop-shadow(0 5px 10px rgba(0, 193, 162, 0.6))
+                    drop-shadow(0 3px 6px rgba(0, 230, 187, 0.4));
             text-shadow: 
-                0 0 20px rgba(0, 230, 187, 0.8),
-                0 0 40px rgba(0, 193, 162, 0.6);
+                0 0 12px rgba(0, 230, 187, 0.8),
+                0 0 24px rgba(0, 193, 162, 0.6);
         }
 
         @keyframes checkmarkPop {
@@ -1929,123 +1717,76 @@
             }
         }
 
-        .fade-in {
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .replay-button {
-            margin-top: 28px;
-            padding: 16px 40px;
-            background: rgba(255, 255, 255, 0.3);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            border-radius: 16px;
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            z-index: 1;
+        /* ========== 3D 폭죽 효과 ========== */
+        .fireworks-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            perspective: 1000px;
             overflow: hidden;
-            letter-spacing: 0.3px;
         }
 
-        .replay-button::before {
-            content: '';
+        .firework {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+            will-change: transform, opacity;
         }
 
-        .replay-button:hover::before {
-            width: 300px;
-            height: 300px;
+        /* 왼쪽 폭죽 */
+        .firework-left {
+            animation: fireworkExplodeLeft 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
         }
 
-        .replay-button:hover {
-            background: rgba(255, 255, 255, 0.4);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
-            border-color: rgba(255, 255, 255, 0.8);
-        }
-
-        .replay-button:active {
-            transform: translateY(-1px);
-        }
-
-        /* 반응형 */
-        @media (max-width: 768px) {
-            .container {
-                padding: 40px 24px;
+        @keyframes fireworkExplodeLeft {
+            0% {
+                transform: translate3d(0, 0, 0) scale(1);
+                opacity: 1;
             }
-
-            .title {
-                font-size: 26px;
+            15% {
+                opacity: 1;
             }
-
-            .icon-wrapper {
-                width: 180px;
-                height: 180px;
+            85% {
+                opacity: 0.7;
             }
-
-            .icon {
-                font-size: 80px;
-            }
-
-            .step-indicator {
-                padding: 0 10px;
-            }
-
-            .step-circle {
-                width: 34px;
-                height: 34px;
-                font-size: 13px;
-            }
-
-            .step-label {
-                font-size: 12px;
-                max-width: 60px;
+            100% {
+                transform: translate3d(var(--tx), var(--ty), var(--tz)) 
+                           rotate3d(var(--rx), var(--ry), 1, var(--rz));
+                opacity: 0;
             }
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 30px 20px;
-            }
+        /* 오른쪽 폭죽 */
+        .firework-right {
+            animation: fireworkExplodeRight 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
 
-            .title {
-                font-size: 22px;
+        @keyframes fireworkExplodeRight {
+            0% {
+                transform: translate3d(0, 0, 0) scale(1);
+                opacity: 1;
             }
+            15% {
+                opacity: 1;
+            }
+            85% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translate3d(var(--tx), var(--ty), var(--tz)) 
+                           rotate3d(var(--rx), var(--ry), 1, var(--rz));
+                opacity: 0;
+            }
+        }
 
-            .icon-wrapper {
-                width: 150px;
-                height: 150px;
-            }
-
-            .icon {
-                font-size: 65px;
-            }
-
-            .step-label {
-                font-size: 11px;
-            }
+        .fade-in {
+            animation: fadeInSmooth 0.6s ease-out;
+            animation-fill-mode: forwards;
         }
     </style>
 </head>
@@ -2082,32 +1823,32 @@
     <script>
         const stages = [
             {
-                duration: 1500,
+                duration: 2000,
                 title: '소송금융 심사가 시작되었습니다',
                 description: '',
-                subDescription: '*심사역 변호사가 심사를 시작하며, 상담결과지 및 사실관계 관련 서류를 확인하고 있습니다.',
+                subDescription: '',
                 showPulse: true,
                 progress: 10
             },
             {
-                duration: 2000,
+                duration: 3000,
                 title: '승소가능성을 심사중입니다',
                 description: '',
-                subDescription: '*사실관계 및 주요 쟁점, 관련 법리를 기반으로 승소 가능성을 심사중이에요.',
+                subDescription: '',
                 progress: 35
             },
             {
-                duration: 2000,
+                duration: 3000,
                 title: '집행가능성을 심사중입니다',
                 description: '',
-                subDescription: '*사실관계 및 상대방에 대한 정보 등을 기반으로 집행 가능성을 심사중이에요.',
+                subDescription: '',
                 progress: 65
             },
             {
-                duration: 1500,
+                duration: 2000,
                 title: '심사 결과를 도출하고 있습니다',
                 description: '',
-                subDescription: '*승소가능성과 집행가능성, 승소예상금액, 소송예상기간 등 심사결과를 도출하고 있어요.',
+                subDescription: '',
                 progress: 90
             },
             {
@@ -2120,98 +1861,162 @@
         let currentStage = 0;
 
         function updateStepIndicator(stage) {
-            // 이전 단계들 완료 표시
             for (let i = 0; i < stage; i++) {
                 const stepItem = document.getElementById(`step-${i}`);
                 stepItem.classList.remove('active');
                 stepItem.classList.add('completed');
-                // 번호 유지 (체크마크로 변경하지 않음)
             }
 
-            // 현재 단계 활성화
             if (stage < 5) {
                 const currentStepItem = document.getElementById(`step-${stage}`);
                 currentStepItem.classList.add('active');
                 currentStepItem.classList.remove('completed');
             }
 
-            // 마지막 단계 완료 표시
             if (stage === 4) {
                 const lastStep = document.getElementById('step-4');
                 lastStep.classList.remove('active');
                 lastStep.classList.add('completed');
-                // 번호 유지 (체크마크로 변경하지 않음)
             }
 
-            // 진행 바 업데이트
             const progressBar = document.getElementById('stepProgress');
             const progressPercent = (stage / 4) * 100;
             progressBar.style.width = progressPercent + '%';
+        }
+
+        // 3D 폭죽 효과 생성
+        function createFireworks() {
+            const container = document.createElement('div');
+            container.className = 'fireworks-container';
+            document.body.appendChild(container);
+
+            const colors = [
+                '#FFD700', // 금색
+                '#00C1A2', // 청록색 (브랜드 컬러)
+                '#00E6BB', // 밝은 청록색
+                '#4A90E2', // 파란색
+                '#FFFFFF'  // 흰색
+            ];
+
+            // 왼쪽 폭죽 (80개)
+            const leftX = window.innerWidth * 0.15;
+            const leftY = window.innerHeight * 0.5;
+            
+            for (let i = 0; i < 80; i++) {
+                const firework = document.createElement('div');
+                firework.className = 'firework firework-left';
+                
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                firework.style.background = `radial-gradient(circle, ${color} 0%, ${color}88 100%)`;
+                firework.style.boxShadow = `0 0 10px ${color}, 0 0 20px ${color}88`;
+                
+                firework.style.left = leftX + 'px';
+                firework.style.top = leftY + 'px';
+                
+                const angle = (Math.random() * 120 - 60) * (Math.PI / 180);
+                const velocity = 300 + Math.random() * 500;
+                const tx = Math.cos(angle) * velocity;
+                const ty = Math.sin(angle) * velocity - 100;
+                const tz = (Math.random() - 0.5) * 300;
+                
+                const rx = Math.random();
+                const ry = Math.random();
+                const rz = Math.random() * 720 - 360;
+                
+                firework.style.setProperty('--tx', tx + 'px');
+                firework.style.setProperty('--ty', ty + 'px');
+                firework.style.setProperty('--tz', tz + 'px');
+                firework.style.setProperty('--rx', rx);
+                firework.style.setProperty('--ry', ry);
+                firework.style.setProperty('--rz', rz + 'deg');
+                
+                firework.style.animationDelay = Math.random() * 0.3 + 's';
+                firework.style.animationDuration = (2 + Math.random() * 1) + 's';
+                
+                container.appendChild(firework);
+            }
+            
+            // 오른쪽 폭죽 (80개)
+            const rightX = window.innerWidth * 0.85;
+            const rightY = window.innerHeight * 0.5;
+            
+            for (let i = 0; i < 80; i++) {
+                const firework = document.createElement('div');
+                firework.className = 'firework firework-right';
+                
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                firework.style.background = `radial-gradient(circle, ${color} 0%, ${color}88 100%)`;
+                firework.style.boxShadow = `0 0 10px ${color}, 0 0 20px ${color}88`;
+                
+                firework.style.left = rightX + 'px';
+                firework.style.top = rightY + 'px';
+                
+                const angle = (Math.random() * 120 - 60) * (Math.PI / 180);
+                const velocity = 300 + Math.random() * 500;
+                const tx = Math.cos(angle) * velocity * -1;
+                const ty = Math.sin(angle) * velocity - 100;
+                const tz = (Math.random() - 0.5) * 300;
+                
+                const rx = Math.random();
+                const ry = Math.random();
+                const rz = Math.random() * 720 - 360;
+                
+                firework.style.setProperty('--tx', tx + 'px');
+                firework.style.setProperty('--ty', ty + 'px');
+                firework.style.setProperty('--tz', tz + 'px');
+                firework.style.setProperty('--rx', rx);
+                firework.style.setProperty('--ry', ry);
+                firework.style.setProperty('--rz', rz + 'deg');
+                
+                firework.style.animationDelay = Math.random() * 0.3 + 's';
+                firework.style.animationDuration = (2 + Math.random() * 1) + 's';
+                
+                container.appendChild(firework);
+            }
         }
 
         function renderStage(stage) {
             const content = document.getElementById('content');
             
             if (stage.showResult) {
+                // 폭죽 효과 생성
+                setTimeout(() => {
+                    createFireworks();
+                }, 200);
+
                 content.innerHTML = `
                     <div class="content-wrapper">
                         <div class="title">심사 결과를 안내드려요</div>
                         <div class="result-box">
-                            <div class="checkmark">
-                                <div class="checkmark-base"></div>
-                                <div class="checkmark-ring"></div>
-                                <div class="checkmark-circle">
-                                    <div class="checkmark-icon">✓</div>
+                            <div class="result-header">
+                                <div class="checkmark">
+                                    <div class="checkmark-base"></div>
+                                    <div class="checkmark-ring"></div>
+                                    <div class="checkmark-circle">
+                                        <div class="checkmark-icon">✓</div>
+                                    </div>
                                 </div>
+                                <div class="result-status">심사 통과</div>
                             </div>
-                            <div class="result-status">심사 통과</div>
+                            <div class="result-highlight">3천만원 지급</div>
                             <div class="result-amount">착수금을 비롯한 인지송달료, 감정료 등의 법률비용을 지급받을 수 있습니다.</div>
-                            <div class="result-note">담당 심사역 변호사, 매니저가 소송금융 계약 관련해 연락드릴 예정입니다.</div>
-                            <div class="result-note" style="margin-bottom: 0;">소송 개시 이후에도 추가 지급 신청이 가능하며, 경우에 따라 심사가 필요할 수 있습니다.</div>
                         </div>
                     </div>
                 `;
             } else {
-                // 단계별 3D 아이콘 HTML
                 let iconHTML = '';
                 switch(currentStage) {
-                    case 0: // 심사 시작 - 다리
+                    case 0:
                         iconHTML = `
-                            <div class="icon-3d icon-document">
-                                <div class="icon-bridge-pillar-left">
-                                    <div class="icon-bridge-stone-left-1"></div>
-                                    <div class="icon-bridge-stone-left-2"></div>
-                                    <div class="icon-bridge-stone-left-3"></div>
-                                </div>
-                                <div class="icon-bridge-pillar-right">
-                                    <div class="icon-bridge-stone-right-1"></div>
-                                    <div class="icon-bridge-stone-right-2"></div>
-                                    <div class="icon-bridge-stone-right-3"></div>
-                                </div>
-                                <div class="icon-bridge-arch">
-                                    <div class="icon-bridge-arch-stone"></div>
-                                    <div class="icon-bridge-arch-stone"></div>
-                                    <div class="icon-bridge-arch-stone"></div>
-                                    <div class="icon-bridge-arch-stone"></div>
-                                    <div class="icon-bridge-arch-stone"></div>
-                                    <div class="icon-bridge-arch-stone"></div>
-                                </div>
-                                <div class="icon-bridge-deck">
-                                    <div class="icon-bridge-deck-line"></div>
-                                    <div class="icon-bridge-deck-line"></div>
-                                    <div class="icon-bridge-deck-line"></div>
-                                    <div class="icon-bridge-deck-line"></div>
-                                    <div class="icon-bridge-deck-line"></div>
-                                </div>
-                                <div class="icon-bridge-ball-left-1"></div>
-                                <div class="icon-bridge-ball-left-2"></div>
-                                <div class="icon-bridge-ball-right-1"></div>
-                                <div class="icon-bridge-ball-right-2"></div>
-                                <div class="icon-bridge-ball-center"></div>
+                            <div class="icon-3d icon-puzzle">
+                                <div class="icon-puzzle-piece-1"></div>
+                                <div class="icon-puzzle-piece-2"></div>
+                                <div class="icon-puzzle-piece-3"></div>
+                                <div class="icon-puzzle-piece-4"></div>
                             </div>
                         `;
                         break;
-                    case 1: // 승소가능성 - 저울
+                    case 1:
                         iconHTML = `
                             <div class="icon-3d icon-scale">
                                 <div class="icon-scale-book-1"></div>
@@ -2230,7 +2035,7 @@
                             </div>
                         `;
                         break;
-                    case 2: // 집행가능성 - 체크리스트와 돋보기
+                    case 2:
                         iconHTML = `
                             <div class="icon-3d icon-search">
                                 <div class="icon-search-folder"></div>
@@ -2248,7 +2053,7 @@
                             </div>
                         `;
                         break;
-                    case 3: // 결과 도출 - 대시보드 분석
+                    case 3:
                         iconHTML = `
                             <div class="icon-3d icon-chart">
                                 <div class="icon-chart-search-bar">
@@ -2287,25 +2092,9 @@
                     ? '<div class="pulse-ring"></div><div class="pulse-ring" style="animation-delay: 0.7s;"></div>' 
                     : '';
 
-                // 심사 중 단계(1, 2, 3)에 Aurora Edge Glow 효과 추가
-                let auroraEffect = '';
-                if (currentStage >= 1 && currentStage <= 3) {
-                    auroraEffect = `
-                        <div class="aurora-glow"></div>
-                        <div class="aurora-outer-glow"></div>
-                        <div class="aurora-particles">
-                            <div class="aurora-particle"></div>
-                            <div class="aurora-particle"></div>
-                            <div class="aurora-particle"></div>
-                            <div class="aurora-particle"></div>
-                        </div>
-                    `;
-                }
-
                 content.innerHTML = `
                     <div class="content-wrapper">
                         <div class="icon-wrapper">
-                            ${auroraEffect}
                             ${pulseRing}
                             <div class="icon">
                                 ${iconHTML}
@@ -2336,7 +2125,6 @@
             }
         }
 
-        // 페이지 로드 시 자동 시작
         window.addEventListener('load', () => {
             setTimeout(nextStage, 300);
         });
