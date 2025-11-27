@@ -85,6 +85,12 @@
             box-shadow: inset 0 0 100px rgba(0, 193, 162, 0.05);
         }
 
+        #content {
+            width: 100%;
+            opacity: 1;
+            will-change: opacity;
+        }
+
         .step-indicator {
             display: flex;
             justify-content: space-between;
@@ -148,6 +154,8 @@
                 inset 0 2.16px 4.32px rgba(255, 255, 255, 0.5),
                 inset 0 -1.44px 2.88px rgba(0, 0, 0, 0.15);
             position: relative;
+            will-change: width;
+            transform: translateZ(0);
         }
 
         /* 진행중인 바 하이라이트 */
@@ -206,6 +214,9 @@
                 inset 0 -2.88px 5.76px rgba(0, 0, 0, 0.08);
             position: relative;
             transform-style: preserve-3d;
+            will-change: transform, background, box-shadow;
+            backface-visibility: hidden;
+            transform: translateZ(0);
         }
 
         /* 3D 하이라이트 */
@@ -298,14 +309,16 @@
             position: relative;
             perspective: 1200px;
             animation: iconWrapperFloat 3s ease-in-out infinite;
+            will-change: transform;
+            transform: translateZ(0);
         }
 
         @keyframes iconWrapperFloat {
             0%, 100% {
-                transform: translateY(0);
+                transform: translateY(0) translateZ(0);
             }
             50% {
-                transform: translateY(-20px);
+                transform: translateY(-20px) translateZ(0);
             }
         }
 
@@ -326,6 +339,9 @@
                 inset 0 -1px 0 rgba(0, 0, 0, 0.05);
             transform-style: preserve-3d;
             border: 1px solid rgba(255, 255, 255, 0.5);
+            will-change: transform;
+            backface-visibility: hidden;
+            transform: translateZ(0);
         }
 
         /* 3D 아이콘 공통 스타일 */
@@ -335,6 +351,7 @@
             height: 180px;
             transform-style: preserve-3d;
             will-change: transform;
+            backface-visibility: hidden;
         }
 
         /* ========== 3D 퍼즐 아이콘 (첨부 이미지 스타일, 90% 크기) ========== */
@@ -2072,137 +2089,152 @@
         function renderStage(stage) {
             const content = document.getElementById('content');
             
-            if (stage.showResult) {
-                // 폭죽 효과 생성
-                setTimeout(() => {
-                    createFireworks();
-                }, 200);
+            // 기존 컨텐츠 페이드아웃
+            content.style.opacity = '0';
+            content.style.transition = 'opacity 0.2s ease-out';
+            
+            // 짧은 지연 후 새 컨텐츠 렌더링
+            setTimeout(() => {
+                if (stage.showResult) {
+                    // 폭죽 효과 생성
+                    setTimeout(() => {
+                        createFireworks();
+                    }, 200);
 
-                content.innerHTML = `
-                    <div class="content-wrapper">
-                        <div class="title">심사 결과를 안내드려요</div>
-                        <div class="result-box">
-                            <div class="result-header">
-                                <div class="checkmark">
-                                    <div class="checkmark-base"></div>
-                                    <div class="checkmark-ring"></div>
-                                    <div class="checkmark-circle">
-                                        <div class="checkmark-icon">✓</div>
+                    content.innerHTML = `
+                        <div class="content-wrapper">
+                            <div class="title">심사 결과를 안내드려요</div>
+                            <div class="result-box">
+                                <div class="result-header">
+                                    <div class="checkmark">
+                                        <div class="checkmark-base"></div>
+                                        <div class="checkmark-ring"></div>
+                                        <div class="checkmark-circle">
+                                            <div class="checkmark-icon">✓</div>
+                                        </div>
+                                    </div>
+                                    <div class="result-status">심사 통과</div>
+                                </div>
+                                <div class="result-highlight">3천만원 지급</div>
+                                <div class="result-amount" style="margin-bottom: 0;">착수금을 비롯한 인지송달료, 감정료 등의 법률비용을 지급받을 수 있습니다.</div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    let iconHTML = '';
+                    switch(currentStage) {
+                        case 0:
+                            iconHTML = `
+                                <div class="icon-3d icon-puzzle">
+                                    <div class="icon-puzzle-piece-1"></div>
+                                    <div class="icon-puzzle-piece-2"></div>
+                                    <div class="icon-puzzle-piece-3"></div>
+                                    <div class="icon-puzzle-piece-4"></div>
+                                </div>
+                            `;
+                            break;
+                        case 1:
+                            iconHTML = `
+                                <div class="icon-3d icon-scale">
+                                    <div class="icon-scale-book-1"></div>
+                                    <div class="icon-scale-book-2"></div>
+                                    <div class="icon-scale-book-3"></div>
+                                    <div class="icon-scale-base"></div>
+                                    <div class="icon-scale-ring-bottom"></div>
+                                    <div class="icon-scale-post"></div>
+                                    <div class="icon-scale-ring-top"></div>
+                                    <div class="icon-scale-top"></div>
+                                    <div class="icon-scale-beam"></div>
+                                    <div class="icon-scale-wire-left"></div>
+                                    <div class="icon-scale-wire-right"></div>
+                                    <div class="icon-scale-pan"></div>
+                                    <div class="icon-scale-pan"></div>
+                                </div>
+                            `;
+                            break;
+                        case 2:
+                            iconHTML = `
+                                <div class="icon-3d icon-search">
+                                    <div class="icon-search-folder"></div>
+                                    <div class="icon-search-document"></div>
+                                    <div class="icon-search-check-1"></div>
+                                    <div class="icon-search-line-1"></div>
+                                    <div class="icon-search-check-2"></div>
+                                    <div class="icon-search-line-2"></div>
+                                    <div class="icon-search-check-3"></div>
+                                    <div class="icon-search-line-3"></div>
+                                    <div class="icon-search-glass">
+                                        <div class="icon-search-lens"></div>
+                                        <div class="icon-search-handle"></div>
                                     </div>
                                 </div>
-                                <div class="result-status">심사 통과</div>
+                            `;
+                            break;
+                        case 3:
+                            iconHTML = `
+                                <div class="icon-3d icon-chart">
+                                    <div class="icon-chart-search-bar">
+                                        <div class="icon-chart-search-icon"></div>
+                                    </div>
+                                    <div class="icon-chart-dots">
+                                        <div class="icon-chart-dot"></div>
+                                        <div class="icon-chart-dot"></div>
+                                        <div class="icon-chart-dot"></div>
+                                    </div>
+                                    <div class="icon-chart-bubble"></div>
+                                    <div class="icon-chart-main">
+                                        <div class="icon-chart-line-1"></div>
+                                        <div class="icon-chart-line-2"></div>
+                                        <div class="icon-chart-line-3"></div>
+                                        <div class="icon-chart-line-4"></div>
+                                        <div class="icon-chart-line-5"></div>
+                                        <div class="icon-chart-line-6"></div>
+                                    </div>
+                                    <div class="icon-chart-profile">
+                                        <div class="icon-chart-profile-avatar"></div>
+                                    </div>
+                                    <div class="icon-chart-bars-card">
+                                        <div class="icon-chart-bar"></div>
+                                        <div class="icon-chart-bar"></div>
+                                        <div class="icon-chart-bar"></div>
+                                        <div class="icon-chart-bar"></div>
+                                    </div>
+                                    <div class="icon-chart-pie"></div>
+                                </div>
+                            `;
+                            break;
+                    }
+                    
+                    const pulseRing = stage.showPulse 
+                        ? '<div class="pulse-ring"></div><div class="pulse-ring" style="animation-delay: 0.7s;"></div>' 
+                        : '';
+
+                    content.innerHTML = `
+                        <div class="content-wrapper">
+                            <div class="icon-wrapper">
+                                ${pulseRing}
+                                <div class="icon">
+                                    ${iconHTML}
+                                </div>
                             </div>
-                            <div class="result-highlight">3천만원 지급</div>
-                            <div class="result-amount" style="margin-bottom: 0;">착수금을 비롯한 인지송달료, 감정료 등의 법률비용을 지급받을 수 있습니다.</div>
+                            <div class="title">${stage.title}</div>
+                            ${stage.description ? `<div class="description">${stage.description}</div>` : ''}
+                            ${stage.subDescription ? `<div class="sub-description">${stage.subDescription}</div>` : ''}
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: ${stage.progress}%"></div>
+                            </div>
                         </div>
-                    </div>
-                `;
-            } else {
-                let iconHTML = '';
-                switch(currentStage) {
-                    case 0:
-                        iconHTML = `
-                            <div class="icon-3d icon-puzzle">
-                                <div class="icon-puzzle-piece-1"></div>
-                                <div class="icon-puzzle-piece-2"></div>
-                                <div class="icon-puzzle-piece-3"></div>
-                                <div class="icon-puzzle-piece-4"></div>
-                            </div>
-                        `;
-                        break;
-                    case 1:
-                        iconHTML = `
-                            <div class="icon-3d icon-scale">
-                                <div class="icon-scale-book-1"></div>
-                                <div class="icon-scale-book-2"></div>
-                                <div class="icon-scale-book-3"></div>
-                                <div class="icon-scale-base"></div>
-                                <div class="icon-scale-ring-bottom"></div>
-                                <div class="icon-scale-post"></div>
-                                <div class="icon-scale-ring-top"></div>
-                                <div class="icon-scale-top"></div>
-                                <div class="icon-scale-beam"></div>
-                                <div class="icon-scale-wire-left"></div>
-                                <div class="icon-scale-wire-right"></div>
-                                <div class="icon-scale-pan"></div>
-                                <div class="icon-scale-pan"></div>
-                            </div>
-                        `;
-                        break;
-                    case 2:
-                        iconHTML = `
-                            <div class="icon-3d icon-search">
-                                <div class="icon-search-folder"></div>
-                                <div class="icon-search-document"></div>
-                                <div class="icon-search-check-1"></div>
-                                <div class="icon-search-line-1"></div>
-                                <div class="icon-search-check-2"></div>
-                                <div class="icon-search-line-2"></div>
-                                <div class="icon-search-check-3"></div>
-                                <div class="icon-search-line-3"></div>
-                                <div class="icon-search-glass">
-                                    <div class="icon-search-lens"></div>
-                                    <div class="icon-search-handle"></div>
-                                </div>
-                            </div>
-                        `;
-                        break;
-                    case 3:
-                        iconHTML = `
-                            <div class="icon-3d icon-chart">
-                                <div class="icon-chart-search-bar">
-                                    <div class="icon-chart-search-icon"></div>
-                                </div>
-                                <div class="icon-chart-dots">
-                                    <div class="icon-chart-dot"></div>
-                                    <div class="icon-chart-dot"></div>
-                                    <div class="icon-chart-dot"></div>
-                                </div>
-                                <div class="icon-chart-bubble"></div>
-                                <div class="icon-chart-main">
-                                    <div class="icon-chart-line-1"></div>
-                                    <div class="icon-chart-line-2"></div>
-                                    <div class="icon-chart-line-3"></div>
-                                    <div class="icon-chart-line-4"></div>
-                                    <div class="icon-chart-line-5"></div>
-                                    <div class="icon-chart-line-6"></div>
-                                </div>
-                                <div class="icon-chart-profile">
-                                    <div class="icon-chart-profile-avatar"></div>
-                                </div>
-                                <div class="icon-chart-bars-card">
-                                    <div class="icon-chart-bar"></div>
-                                    <div class="icon-chart-bar"></div>
-                                    <div class="icon-chart-bar"></div>
-                                    <div class="icon-chart-bar"></div>
-                                </div>
-                                <div class="icon-chart-pie"></div>
-                            </div>
-                        `;
-                        break;
+                    `;
                 }
                 
-                const pulseRing = stage.showPulse 
-                    ? '<div class="pulse-ring"></div><div class="pulse-ring" style="animation-delay: 0.7s;"></div>' 
-                    : '';
-
-                content.innerHTML = `
-                    <div class="content-wrapper">
-                        <div class="icon-wrapper">
-                            ${pulseRing}
-                            <div class="icon">
-                                ${iconHTML}
-                            </div>
-                        </div>
-                        <div class="title">${stage.title}</div>
-                        ${stage.description ? `<div class="description">${stage.description}</div>` : ''}
-                        ${stage.subDescription ? `<div class="sub-description">${stage.subDescription}</div>` : ''}
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: ${stage.progress}%"></div>
-                        </div>
-                    </div>
-                `;
-            }
+                // 새 컨텐츠 페이드인 (requestAnimationFrame으로 부드럽게)
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        content.style.transition = 'opacity 0.3s ease-in';
+                        content.style.opacity = '1';
+                    });
+                });
+            }, 200);
         }
 
         function nextStage() {
