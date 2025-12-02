@@ -2099,15 +2099,11 @@
 
       .checkmark-icon {
         font-size: 28px;
-        color: var(--color-accent);
+        color: white;
         font-weight: 900;
         position: relative;
         z-index: 2;
         animation: checkmarkPop 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        filter: drop-shadow(0 3px 6px rgba(0, 193, 162, 0.6))
-          drop-shadow(0 2px 4px rgba(0, 230, 187, 0.4));
-        text-shadow: 0 0 8px rgba(0, 230, 187, 0.8),
-          0 0 16px rgba(0, 193, 162, 0.6);
       }
 
       @keyframes checkmarkPop {
@@ -2404,9 +2400,12 @@
         // 짧은 지연 후 새 컨텐츠 렌더링
         setTimeout(() => {
           if (stage.showResult) {
-            // 폭죽 효과 생성
+            // 폭죽 효과 생성 (두 번 실행)
             setTimeout(() => {
               createFireworks();
+              setTimeout(() => {
+                createFireworks();
+              }, 1400);
             }, 200);
 
             content.innerHTML = `
